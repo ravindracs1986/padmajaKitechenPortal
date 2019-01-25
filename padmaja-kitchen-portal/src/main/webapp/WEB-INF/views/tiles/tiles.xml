@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC  "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"  "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">  
+
+<tiles-definitions>  
+ 
+   <!-- Base Definition -->
+   <definition name="base-definition" 
+       template="/WEB-INF/views/tiles/layouts/defaultLayout.jsp">  
+       <put-attribute name="title" value="" />  
+       <put-attribute name="header" value="/WEB-INF/views/tiles/template/defaultHeader.jsp" />  
+       <!-- <put-attribute name="menu" value="/WEB-INF/views/tiles/template/defaultMenu.jsp" />  --> 
+       <put-attribute name="body" value="" />  
+       <put-attribute name="footer" value="/WEB-INF/views/tiles/template/defaultFooter.jsp" />  
+   </definition>  
+ 
+   <!-- Home Page -->
+   <definition name="home" extends="base-definition">  
+       <put-attribute name="title" value="Home" />  
+       <put-attribute name="body" value="/WEB-INF/views/pages/home.jsp" />  
+   </definition>  
+   
+    <!-- VegRecipe Page -->
+   <definition name="vegRecipe" extends="base-definition">  
+       <put-attribute name="title" value="VegRecipe" />  
+       <put-attribute name="body" value="/WEB-INF/views/pages/vegRecipe.jsp" />  
+   </definition> 
+   
+    <!-- NonVegRecipe Page -->
+   <definition name="nonVegRecipe" extends="base-definition">  
+       <put-attribute name="title" value="NonVegRecipe" />  
+       <put-attribute name="body" value="/WEB-INF/views/pages/nonVegRecipe.jsp" />  
+   </definition> 
+   
+    <!-- About Page -->
+   <definition name="about" extends="base-definition">  
+       <put-attribute name="title" value="About" />  
+       <put-attribute name="body" value="/WEB-INF/views/pages/about.jsp" />  
+   </definition> 
+   
+    <!-- Contact Page -->
+   <definition name="contact" extends="base-definition">  
+       <put-attribute name="title" value="Contact" />  
+       <put-attribute name="body" value="/WEB-INF/views/pages/contact.jsp" />  
+   </definition> 
+   
+    <!-- Admin Login Page -->
+   <definition name="login" extends="base-definition">  
+       <put-attribute name="title" value="Admin Login" />  
+       <put-attribute name="body" value="/WEB-INF/views/pages/login.jsp" />  
+   </definition>
+   
+    <!-- Admin Login Page -->
+   <definition name="adminHome" extends="base-definition">  
+       <put-attribute name="title" value="Admin Home" />  
+       <put-attribute name="body" value="/WEB-INF/views/pages/adminHome.jsp" />  
+   </definition>
+   
+   
+ 
+ <!-- singleFileUploader Page -->
+   <definition name="singleFileUploader" extends="base-definition">  
+       <put-attribute name="title" value="SingleUpload" />  
+       <put-attribute name="body" value="/WEB-INF/views/pages/singleFileUploader.jsp" />  
+   </definition>  
+
+ <!-- multiFileUploader Page -->
+   <definition name="multiFileUploader" extends="base-definition">  
+       <put-attribute name="title" value="MultiUpload" />  
+       <put-attribute name="body" value="/WEB-INF/views/pages/multiFileUploader.jsp" />  
+   </definition> 
+   
+   
+   <!-- success Page -->
+   <definition name="success" extends="base-definition">  
+       <put-attribute name="title" value="Success" />  
+       <put-attribute name="body" value="/WEB-INF/views/pages/success.jsp" />  
+   </definition> 
+   
+   <!-- multiSuccess Page -->
+   <definition name="multiSuccess" extends="base-definition">  
+       <put-attribute name="title" value="Success" />  
+       <put-attribute name="body" value="/WEB-INF/views/pages/multiSuccess.jsp" />  
+   </definition> 
+
+   
+ 
+</tiles-definitions>
