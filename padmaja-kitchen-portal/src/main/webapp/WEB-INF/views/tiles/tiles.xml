@@ -55,6 +55,18 @@
        <put-attribute name="body" value="/WEB-INF/views/pages/adminHome.jsp" />  
    </definition>
    
+   <!-- blogDetails Login Page -->
+   <definition name="blogDetails" extends="base-definition">  
+       <put-attribute name="title" value="BlogDetails Home" />  
+       <put-attribute name="body" value="/WEB-INF/views/pages/blogDetails.jsp" />  
+   </definition>
+   
+   <!-- Admin Login Page -->
+   <definition name="blogDetailsList" extends="base-definition">  
+       <put-attribute name="title" value="BlogDetailsList Home" />  
+       <put-attribute name="body" value="/WEB-INF/views/pages/blogDetailsList.jsp" />  
+   </definition>
+   
    
  
  <!-- singleFileUploader Page -->
