@@ -1,12 +1,21 @@
 package com.padmaja.kitchen.configuration;
 
+import java.io.File;
 import java.io.IOException;
 
+import org.apache.commons.lang3.StringUtils;
+import org.dozer.DozerBeanMapper;
+import org.dozer.Mapper;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
+import org.springframework.context.support.ReloadableResourceBundleMessageSource;
 import org.springframework.context.support.ResourceBundleMessageSource;
+import org.springframework.core.io.FileSystemResource;
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
@@ -16,12 +25,16 @@ import org.springframework.web.servlet.view.tiles3.TilesConfigurer;
 import org.springframework.web.servlet.view.tiles3.TilesViewResolver;
 
 
+
+
+
+
 @Configuration
 @EnableWebMvc
 @ComponentScan(basePackages = "com.padmaja.kitchen")
 public class PadmajaKitchenConfig extends WebMvcConfigurerAdapter{
 
-	
+	private static final Logger LOGGER = LoggerFactory.getLogger(PadmajaKitchenConfig.class);
 	
 	@Bean(name="multipartResolver") 
 	public CommonsMultipartResolver getResolver() throws IOException{
@@ -75,6 +88,76 @@ public class PadmajaKitchenConfig extends WebMvcConfigurerAdapter{
         messageSource.setBasename("messages");
         return messageSource;
     }
+    
+    @Bean(name = "messageSource")
+    public ReloadableResourceBundleMessageSource getMessageSource() {
+        ReloadableResourceBundleMessageSource resource = new ReloadableResourceBundleMessageSource();
+        resource.setBasename("classpath:messages");
+        resource.setDefaultEncoding("UTF-8");
+        return resource;
+    }
+    
+    @Bean public Mapper dozerMapper() { return new DozerBeanMapper(); }
+    
+    @Bean
+   	public static PropertySourcesPlaceholderConfigurer propertyConfigInDev() {
+   		PropertySourcesPlaceholderConfigurer ppc = new PropertySourcesPlaceholderConfigurer();
+   		FileSystemResource[] resources = new FileSystemResource[]{ new FileSystemResource( getPropertyPath() + ConfigConstants.PROPERTIES_EXT )};
+   	    ppc.setLocations( resources );
+   	    ppc.setIgnoreUnresolvablePlaceholders( false );
+   	    return ppc;
+   	}
+       private static String propertyPath;
+       
+       public static String getPropertyPath() {
+       	if(!StringUtils.isEmpty(propertyPath)) {
+       		return propertyPath;
+       	}
+       	// Get from PROJECT CONFIGURATION server
+   		/*String propertyHome = System.getProperty(ConfigConstants.PATH_PROJ_CONFIG) != null ? System.getProperty(ConfigConstants.PATH_PROJ_CONFIG) : System.getenv(ConfigConstants.PATH_PROJ_CONFIG);
+   	    LOGGER.info("PROJECT CONFIGURATION HOME >> " + propertyHome);
+   	    File file = new File(propertyHome + ConfigConstants.FILE_SYS_RESOURCE);
+   		if (!file.exists()) propertyHome = null;*/
+   	    
+   	    // Get from TOMCAT server
+       	File file =null;
+   	    	String propertyHome = System.getProperty(ConfigConstants.PATH_CATALINA_HOME) != null ? System.getProperty(ConfigConstants.PATH_CATALINA_HOME) : System.getProperty(ConfigConstants.PATH_CATALINA_BASE);
+   	    	if(!StringUtils.isEmpty(propertyHome)) {
+   	    		propertyHome = propertyHome + File.separator + "conf";
+   	    	}
+   	    	LOGGER.info("CATALINA HOME >> " + propertyHome);
+   	    	file = new File(propertyHome + ConfigConstants.FILE_SYS_RESOURCE);
+   			if (!file.exists()) propertyHome = null;
+   	 
+   	    
+   	   /* // Get from JBOSS server
+       	if(BaseUtil.isObjNull(propertyHome)) {
+       		propertyHome = System.getProperty(ConfigConstants.PROJ_JBOSS_HOME);
+       		if(!BaseUtil.isObjNull(propertyHome)) {
+   	    		propertyHome = propertyHome + File.separator + "configuration";
+   	    	}
+   			LOGGER.info("JBOSS HOME >> " + propertyHome);
+   			file = new File(propertyHome + ConfigConstants.FILE_SYS_RESOURCE);
+   			if (!file.exists()) propertyHome = null;
+   	    }*/
+       	    	
+   	    if(!StringUtils.isEmpty(propertyHome)) {
+   	    	file = new File(propertyHome + ConfigConstants.FILE_SYS_RESOURCE);
+   			if (file.exists() && !file.isDirectory()) {
+   				propertyPath = propertyHome + File.separator + ConfigConstants.PROPERTY_FILENAME;
+   			} else {
+   				LOGGER.info("Missing properties file >> " + propertyHome + ConfigConstants.FILE_SYS_RESOURCE);
+   			}
+   	    }
+   	    
+   	    // Get from Application CLASSPATH
+   	    propertyPath = propertyPath != null ? propertyPath : ConfigConstants.PROPERTY_CLASSPATH;
+   	    
+   	    LOGGER.info("\n[Application Properties :: \n\tPath : " + propertyPath + "\n]");
+   	    
+   	    return propertyPath;
+       }
+    
     
 }
 
