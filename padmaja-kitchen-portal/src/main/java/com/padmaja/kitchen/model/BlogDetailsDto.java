@@ -48,6 +48,9 @@ public class BlogDetailsDto implements java.io.Serializable {
 
 	private String category;
 	private FileBucket fileBucket;
+	private String crtDate;
+	private String imageString;
+
 	public String getTitle() {
 		return title;
 	}
@@ -192,9 +195,6 @@ public class BlogDetailsDto implements java.io.Serializable {
 		this.blogImage = blogImage;
 	}
 
-	@Column(name = "CRT_TS", nullable = false, length = 50)
-	private Timestamp crtTs;
-
 	public Long getId() {
 		return id;
 	}
@@ -219,5 +219,20 @@ public class BlogDetailsDto implements java.io.Serializable {
 		this.fileBucket = fileBucket;
 	}
 
-	
+	public String getCrtDate() {
+		return crtDate;
+	}
+
+	public void setCrtDate(String crtDate) {
+		this.crtDate = crtDate;
+	}
+
+	public String getImageString() {
+		return imageString;
+	}
+
+	public void setImageString(String imageString) {
+		this.imageString = imageString;
+	}
+
 }

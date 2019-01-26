@@ -17,6 +17,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.padmaja.kitchen.model.FileBucket;
 import com.padmaja.kitchen.persist.entity.BlogDetails;
@@ -33,16 +34,27 @@ public class BlogDetailsController {
 	@Autowired BlogDetailsService blogDetailsService;
 
 	@RequestMapping(value="/detail", method = RequestMethod.GET)
-	public String getBlogDetails(ModelMap model,HttpServletRequest request, HttpServletResponse response) {
+	public String getBlogDetails(@RequestParam String id,ModelMap model,HttpServletRequest request, HttpServletResponse response) {
 		FileBucket fileModel = new FileBucket();
 		model.addAttribute("fileBucket", fileModel);
 		return "blogDetails";
 	}
 
 	@RequestMapping(value="/detailList", method = RequestMethod.GET)
-	public String getBlogDetailsList(ModelMap model,HttpServletRequest request, HttpServletResponse response) {
+	public String getBlogDetailsList(@RequestParam String id,ModelMap model,HttpServletRequest request, HttpServletResponse response) {
 		FileBucket fileModel = new FileBucket();
 		model.addAttribute("fileBucket", fileModel);
+		logger.info("detailList get method call");
+		if(id!=null && id.equalsIgnoreCase("popular")){
+			
+		}else if(id!=null && id.equalsIgnoreCase("recently")){
+			
+		}else{
+			//new
+			
+		}
+		
+		
 		return "blogDetailsList";
 	}
 	

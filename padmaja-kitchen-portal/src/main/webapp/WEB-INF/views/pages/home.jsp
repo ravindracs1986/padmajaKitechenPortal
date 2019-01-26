@@ -2,6 +2,7 @@
 <%@page
 	import="javax.servlet.*,javax.servlet.http.*,java.sql.*,java.io.*"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <html>
 <head>
 
@@ -102,8 +103,7 @@
 		</div>
 	</div>
 	
-        
-       <!-- blog pages start --> 
+	<!-- blog pages start --> 
         <!-- End main content area -->
             <div class="product-widget-area">
                 <div class="zigzag-bottom"></div>
@@ -112,140 +112,65 @@
                         <div class="col-md-4">
                             <div class="single-product-widget">
                                 <h2 class="product-wid-title">Popular Recipe</h2>
-                                <a href="" class="wid-view-more">View All</a>
-                                <div class="single-wid-product">
-                                    <a href="single-product.jsp"><img src="assets/img/product-thumb-1.jpg" alt="" class="product-thumb"></a>
-                                    <h2><a href="single-product.jsp">Sony Smart TV - 2015</a></h2>
+                                <a href="${pageContext.request.contextPath}/detailList?id=popular" class="wid-view-more" target="_blank">View All</a>
+                                <c:forEach var="img" items="${popularImageList}">
+								    <%-- <img src="data:image/png;base64, ${img}"/> --%>
+								    <div class="single-wid-product">
+                                    <a href="single-product.jsp"><img src="data:image/png;base64, ${img.imageString}" alt="" class="product-thumb"></a>
+                                    <h2><a href="single-product.jsp">${img.blogName}</a></h2>
                                     <div class="product-wid-rating">
                                         <span class="meta-part"><i
-									class="ti-calendar"></i><a href="#"> Date:20.02.2018</a></span>
+									class="ti-calendar"></i><a href="#"> ${img.crtDate}</a></span>
                                     </div>
                                     <div class="product-wid-price">
-                                        <a href="https://youtu.be/${product.youtube_id}" class="view-details-link" target="_blank"><i
+                                        <a href="${pageContext.request.contextPath}/detail?id=${img.id}" class="view-details-link" target="_blank"><i
 												class="fa fa-link"></i> See details</a>
                                     </div>
                                 </div>
-                                <div class="single-wid-product">
-                                    <a href="single-product.jsp"><img src="assets/img/product-thumb-2.jpg" alt="" class="product-thumb"></a>
-                                    <h2><a href="single-product.jsp">Apple new mac book 2015</a></h2>
-                                    <div class="product-wid-rating">
-                                        <span class="meta-part"><i
-									class="ti-calendar"></i><a href="#"> Date:20.02.2018</a></span>
-                                    </div>
-                                    <div class="product-wid-price">
-                                        <a href="https://youtu.be/${product.youtube_id}" class="view-details-link" target="_blank"><i
-												class="fa fa-link"></i> See details</a>
-                                    </div>
-                                </div>
-                                <div class="single-wid-product">
-                                    <a href="single-product.jsp"><img src="assets/img/product-thumb-3.jpg" alt="" class="product-thumb"></a>
-                                    <h2><a href="single-product.jsp">Apple new i phone 6</a></h2>
-                                    <div class="product-wid-rating">
-                                        <span class="meta-part"><i
-									class="ti-calendar"></i><a href="#"> Date:20.02.2018</a></span>
-                                    </div>
-                                    <div class="product-wid-price">
-                                        <a href="https://youtu.be/${product.youtube_id}" class="view-details-link" target="_blank"><i
-												class="fa fa-link"></i> See details</a>
-                                    </div>
-                                </div>
-                            </div>
+							</c:forEach>
+                           </div>
                         </div>
                         <div class="col-md-4">
                             <div class="single-product-widget">
                                 <h2 class="product-wid-title">Recently Recipe</h2>
-                                <a href="#" class="wid-view-more">View All</a>
-                                <div class="single-wid-product">
-                                    <a href="single-product.jsp"><img src="assets/img/product-thumb-4.jpg" alt="" class="product-thumb"></a>
-                                    <h2>
-								<a href="single-product.jsp">Sony playstation microsoft</a>
-							</h2>
+                                <a href="${pageContext.request.contextPath}/detailList?id=recently" class="wid-view-more" target="_blank">View All</a>
+                                <c:forEach var="recentlyimg" items="${recentlyImageList}">
+								    <%-- <img src="data:image/png;base64, ${img}"/> --%>
+								    <div class="single-wid-product">
+                                    <a href="single-product.jsp"><img src="data:image/png;base64, ${recentlyimg.imageString}" alt="" class="product-thumb"></a>
+                                    <h2><a href="single-product.jsp">${recentlyimg.blogName}</a></h2>
                                     <div class="product-wid-rating">
                                         <span class="meta-part"><i
-									class="ti-calendar"></i><a href="#"> Date:20.02.2018</a></span>
+									class="ti-calendar"></i><a href="#"> ${recentlyimg.crtDate}</a></span>
                                     </div>
                                     <div class="product-wid-price">
-                                        <a href="https://youtu.be/${product.youtube_id}" class="view-details-link" target="_blank"><i
+                                        <a href="${pageContext.request.contextPath}/detail?id=${recentlyimg.id}" class="view-details-link" target="_blank"><i
 												class="fa fa-link"></i> See details</a>
                                     </div>
                                 </div>
-                                <div class="single-wid-product">
-                                    <a href="single-product.jsp"><img src="assets/img/product-thumb-1.jpg" alt="" class="product-thumb"></a>
-                                    <h2>
-								<a href="single-product.jsp">Sony Smart Air Condtion</a>
-							</h2>
-                                    <div class="product-wid-rating">
-                                        <span class="meta-part"><i
-									class="ti-calendar"></i><a href="#"> Date:20.02.2018</a></span>
-                                    </div>
-                                    <div class="product-wid-price">
-                                        <a href="https://youtu.be/${product.youtube_id}" class="view-details-link" target="_blank"><i
-												class="fa fa-link"></i> See details</a>
-                                    </div>
-                                </div>
-                                <div class="single-wid-product">
-                                    <a href="single-product.jsp"><img src="assets/img/product-thumb-2.jpg" alt="" class="product-thumb"></a>
-                                    <h2>
-								<a href="single-product.jsp">Samsung gallaxy note 4</a>
-							</h2>
-                                    <div class="product-wid-rating">
-                                        <span class="meta-part"><i
-									class="ti-calendar"></i><a href="#"> Date:20.02.2018</a></span>
-                                    </div>
-                                    <div class="product-wid-price">
-                                        <a href="https://youtu.be/${product.youtube_id}" class="view-details-link" target="_blank"><i
-												class="fa fa-link"></i> See details</a>
-                                    </div>
-                                </div>
-                            </div>
+							</c:forEach>
+                           </div>
                         </div>
                         <div class="col-md-4">
                             <div class="single-product-widget">
                                 <h2 class="product-wid-title">New Recipe</h2>
-                                <a href="#" class="wid-view-more">View All</a>
-                                <div class="single-wid-product">
-                                    <a href="single-product.jsp"><img src="assets/img/product-thumb-3.jpg" alt="" class="product-thumb"></a>
-                                    <h2>
-								<a href="single-product.jsp">Apple new i phone 6</a>
-							</h2>
+                                <a href="${pageContext.request.contextPath}/detailList?id=new" class="wid-view-more" target="_blank">View All</a>
+                                <c:forEach var="newimg" items="${newImageList}">
+								    <%-- <img src="data:image/png;base64, ${img}"/> --%>
+								    <div class="single-wid-product">
+                                    <a href="single-product.jsp"><img src="data:image/png;base64, ${newimg.imageString}" alt="" class="product-thumb"></a>
+                                    <h2><a href="single-product.jsp">${newimg.blogName}</a></h2>
                                     <div class="product-wid-rating">
                                         <span class="meta-part"><i
-									class="ti-calendar"></i><a href="#"> Date:20.02.2018</a></span>
+									class="ti-calendar"></i><a href="#"> ${newimg.crtDate}</a></span>
                                     </div>
                                     <div class="product-wid-price">
-                                        <a href="https://youtu.be/${product.youtube_id}" class="view-details-link" target="_blank"><i
+                                        <a href="${pageContext.request.contextPath}/detail?id=${newimg.id}" class="view-details-link" target="_blank"><i
 												class="fa fa-link"></i> See details</a>
                                     </div>
                                 </div>
-                                <div class="single-wid-product">
-                                    <a href="single-product.jsp"><img src="assets/img/product-thumb-4.jpg" alt="" class="product-thumb"></a>
-                                    <h2>
-								<a href="single-product.html">Samsung gallaxy note 4</a>
-							</h2>
-                                    <div class="product-wid-rating">
-                                        <span class="meta-part"><i
-									class="ti-calendar"></i><a href="#"> Date:20.02.2018</a></span>
-                                    </div>
-                                    <div class="product-wid-price">
-                                        <a href="https://youtu.be/${product.youtube_id}" class="view-details-link" target="_blank"><i
-												class="fa fa-link"></i> See details</a>
-                                    </div>
-                                </div>
-                                <div class="single-wid-product">
-                                    <a href="single-product.jsp"><img src="assets/img/product-thumb-1.jpg" alt="" class="product-thumb"></a>
-                                    <h2>
-								<a href="single-product.html">Sony playstation microsoft</a>
-							</h2>
-                                    <div class="product-wid-rating">
-                                        <span class="meta-part"><i
-									class="ti-calendar"></i><a href="#"> Date:20.02.2018</a></span>
-                                    </div>
-                                    <div class="product-wid-price">
-                                        <a href="https://youtu.be/${product.youtube_id}" class="view-details-link" target="_blank"><i
-												class="fa fa-link"></i> See details</a>
-                                    </div>
-                                </div>
-                            </div>
+							</c:forEach>
+                           </div>
                         </div>
                     </div>
                 </div>
