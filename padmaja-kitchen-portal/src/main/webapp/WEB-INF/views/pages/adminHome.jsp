@@ -1,5 +1,6 @@
 <%@ page import="java.sql.*"%>
 <%@ page isELIgnored="false"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -20,15 +21,18 @@
                            <form class="checkout_coupon collapse" method="post" action="${pageContext.request.contextPath}/saveVideo" id="login-collapse-wrap">
 
                  <div class="form-row">
-                     <div class="form-group col-md-6">
+                    <div class="form-group col-md-6">
                          <label for="category">Category:</label>
                          <select id="category" class="form-control" name="category">
-                             <option selected>Select a Category€¦</option>
+                             <option selected>Please Select</option>
                              <option value="NONVEG">NON-VEG</option>
                              <option value="VEG">VEG</option>
 
                          </select>
-                     </div>
+                     </div> 
+                     
+                     
+                     
                      <div class="form-group col-md-6">
                          <label for="videoName">Video Name:</label>
                          <input type="text" class="form-control" name="videoName" placeholder="VideoName">
@@ -55,52 +59,133 @@
              <!-- Blog Page -->
              <div class="woocommerce-info">Want to Write full Blog Details? <a class="showcoupon" data-toggle="collapse" href="#coupon-collapse-wrap" aria-expanded="false" aria-controls="coupon-collapse-wrap">Click here Write Blog Details</a>
              </div>
-             <form enctype="multipart/form-data" action="#" class="checkout_coupon collapse" method="post" name="checkout" id="coupon-collapse-wrap">
+             <form:form enctype="multipart/form-data" modelAttribute="fileBucket" class="checkout_coupon collapse form-horizontal" method="post" action="${pageContext.request.contextPath}/saveBlog" name="checkout" id="coupon-collapse-wrap">
                  <div class="form-row">
                      <div class="form-group col-md-6">
-                         <label for="inputEmail4">Email</label>
-                         <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+                         <label for="blogName">BlogName</label>
+                         <input type="text" name="blogName" class="form-control" id="blogName" placeholder="BlogName">
                      </div>
                      <div class="form-group col-md-6">
-                         <label for="inputPassword4">Password</label>
-                         <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
+                         <label for="title">Title</label>
+                         <input type="text" name="title" class="form-control" id="title" placeholder="Title">
                      </div>
                  </div>
-                 <div class="form-group">
-                     <label for="inputAddress">Address</label>
-                     <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+                  <div class="form-row">
+                     <div class="form-group col-md-6">
+                         <label for="paragraphOne">ParagraphOne</label>
+                         <textarea name="paragraphOne" class="form-control" id="paragraphOne" placeholder="ParagraphOne"/></textarea>
+                     </div>
+                     <div class="form-group col-md-6">
+                         <label for="paragraphTwo">ParagraphTwo</label>
+                         <textarea name="paragraphTwo" name="paragraphTwo" class="form-control" id="paragraphTwo" placeholder="ParagraphTwo"></textarea>
+                     </div>
                  </div>
-                 <div class="form-group">
-                     <label for="inputAddress2">Address 2</label>
-                     <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
-                 </div>
+                 
                  <div class="form-row">
                      <div class="form-group col-md-6">
-                         <label for="inputCity">City</label>
-                         <input type="text" class="form-control" id="inputCity">
+                         <label for="imageOneUrl">ImageOneUrl</label>
+                         <input type="text" name="imageOneUrl" class="form-control" id="imageOneUrl" placeholder="ImageOneUrl">
                      </div>
-                     <div class="form-group col-md-4">
-                         <label for="inputState">State</label>
-                         <select id="inputState" class="form-control">
-                             <option selected>Choose...</option>
-                             <option>...</option>
+                  </div>
+                 
+                 <div class="form-row">
+                     <div class="form-group col-md-6">
+                         <label for="paragraphThree">ParagraphThree</label>
+                         <textarea name="paragraphThree" class="form-control" id="paragraphThree" placeholder="ParagraphThree"></textarea>
+                     </div>
+                     <div class="form-group col-md-6">
+                         <label for="paragraphFour">ParagraphFour</label>
+                         <textarea name="paragraphFour" name="paragraphFour" class="form-control" id="paragraphFour" placeholder="ParagraphFour"></textarea>
+                     </div>
+                 </div>
+                 
+                 <div class="form-row">
+                     <div class="form-group col-md-6">
+                         <label for="imageTwoUrl">ImageTwoUrl</label>
+                         <input type="text" name="imageTwoUrl" class="form-control" id="imageTwoUrl" placeholder="ImageTwoUrl">
+                     </div>
+                  </div>
+                 <div class="form-row">
+                     <div class="form-group col-md-6">
+                         <label for="paragraphSix">ParagraphSix</label>
+                         <textarea name="paragraphSix" class="form-control" id="paragraphSix" placeholder="ParagraphSix"></textarea>
+                     </div>
+                  </div>
+                 
+                   <div class="form-row">
+                     <div class="form-group col-md-6">
+                         <label for="youTubeVideoTitle">YouTubeVideoTitle</label>
+                         <input type="text" name="youTubeVideoTitle" class="form-control" id="youTubeVideoTitle" placeholder="youTubeVideoTitle">
+                     </div>
+                     
+                     <div class="form-group col-md-6">
+                         <label for="youTubeVideoUrl">YouTubeVideoUrl</label>
+                         <input type="text" name="youTubeVideoUrl" class="form-control" id="youTubeVideoUrl" placeholder="YouTubeVideoUrl">
+                     </div>
+                     
+                  </div>
+                  
+                  <div class="form-row">
+                     <div class="form-group col-md-6">
+                         <label for="recipeCardTitle">RecipeCardTitle</label>
+                         <input type="text" name="recipeCardTitle" class="form-control" id="recipeCardTitle" placeholder="RecipeCardTitle">
+                     </div>
+                  </div>
+                 
+                 <div class="form-row">
+                     <div class="form-group col-md-6">
+                         <label for="recipeCardInsideTitle">RecipeCardInsideTitle</label>
+                         <input type="text" name="recipeCardInsideTitle" class="form-control" id="recipeCardInsideTitle" placeholder="RecipeCardInsideTitle">
+                     </div>
+                  </div>
+                  
+                    <div class="form-row">
+                     <div class="form-group col-md-6">
+                         <label for="ingredientsDetails">IngredientsDetails</label>
+                         <textarea name="ingredientsDetails" class="form-control" id="ingredientsDetails" placeholder="IngredientsDetails"></textarea>
+                     </div>
+                     
+                 </div>
+                 
+                 <div class="form-row">
+                     <div class="form-group col-md-6">
+                         <label for="instructionsDetails">InstructionsDetails</label>
+                         <textarea name="instructionsDetails" class="form-control" id="instructionsDetails" placeholder="InstructionsDetails"></textarea>
+                     </div>
+                     
+                 </div>
+                 
+                 <div class="form-row">
+                     <div class="form-group col-md-6">
+                         <label for="notes">Notes</label>
+                         <textarea name="notes" class="form-control" id="notes" placeholder="notes"></textarea>
+                     </div>
+                     
+                 </div>
+                 
+                 <div class="form-row">
+                     <div class="form-group col-md-6">
+                         <label for="notes">SmallImage</label>
+                        <form:input type="file" path="file" id="file" class="form-control input-sm"/>
+						<div class="has-error">
+							<form:errors path="file" class="help-inline"/>
+						</div>
+                     </div>
+                     <div class="form-group col-md-6">
+                         <label for="category">Category:</label>
+                         <select id="category" class="form-control" name="category">
+                             <option value="Select-Category" selected>Please Select</option>
+                             <option value="BreakFast-Creeds">BreakFast Creeds</option>
+                             <option value="Launch-Creeds">Launch Creeds</option>
+
                          </select>
                      </div>
-                     <div class="form-group col-md-2">
-                         <label for="inputZip">Zip</label>
-                         <input type="text" class="form-control" id="inputZip">
-                     </div>
+                     
                  </div>
-                 <div class="form-group">
-                     <div class="form-check">
-                         <input class="form-check-input" type="checkbox" id="gridCheck">
-                         <label class="form-check-label" for="gridCheck">
-                             Check me out
-                         </label>
-                     </div>
-                 </div>
+                 
                  <button type="submit" class="btn btn-primary">save Blogs</button>
-             </form>
+                 
+             </form:form>
 
          </div>
          <!-- save blogs end -->

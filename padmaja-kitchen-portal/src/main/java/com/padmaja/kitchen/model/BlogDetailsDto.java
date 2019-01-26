@@ -1,85 +1,53 @@
-package com.padmaja.kitchen.persist.entity;
+package com.padmaja.kitchen.model;
 
 import java.sql.Timestamp;
 
 import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
 
-import org.hibernate.annotations.GenericGenerator;
-
-import com.padmaja.kitchen.core.AbstractEntity;
-
-@Entity
-@Table(name = "blog_details")
-public class BlogDetails extends AbstractEntity implements java.io.Serializable {
+public class BlogDetailsDto implements java.io.Serializable {
 
 	private static final long serialVersionUID = -4393320270992003990L;
-	@Id
-	@GenericGenerator(name = "generator", strategy = "increment")
-	@GeneratedValue(generator = "generator")
-	@Column(name = "id", nullable = false)
+
 	private Long id;
 
-	@Column(name = "blog_name", nullable = false)
 	private String blogName;
 
-	@Column(name = "title", nullable = false)
 	private String title;
 
-	@Column(name = "paragraphOne", nullable = false)
 	private String paragraphOne;
 
-	@Column(name = "paragraphTwo", nullable = false)
 	private String paragraphTwo;
 
-	@Column(name = "imageOneUrl", nullable = false)
 	private String imageOneUrl;
 
-	@Column(name = "paragraphThree", nullable = false)
 	private String paragraphThree;
 
-	@Column(name = "imageTwoUrl", nullable = false)
 	private String imageTwoUrl;
 
-	@Column(name = "paragraphFour", nullable = false)
 	private String paragraphFour;
 
-	@Column(name = "paragraphFive", nullable = false)
 	private String paragraphFive;
-	
-	@Column(name = "paragraphSix", nullable = false)
+
 	private String paragraphSix;
 
-	@Column(name = "youTubeVideoTitle", nullable = false)
 	private String youTubeVideoTitle;
 
-	@Column(name = "youTubeVideoUrl", nullable = false)
 	private String youTubeVideoUrl;
 
-	@Column(name = "recipeCardTitle", nullable = false)
 	private String recipeCardTitle;
 
-	@Column(name = "recipeCardInsideTitle", nullable = false)
 	private String recipeCardInsideTitle;
 
-	@Column(name = "ingredientsDetails", nullable = false)
 	private String ingredientsDetails;
 
-	@Column(name = "instructionsDetails", nullable = false)
 	private String instructionsDetails;
 
-	@Column(name = "notes", nullable = false)
 	private String notes;
 
-	@Column(name = "blog_image", nullable = false)
 	private byte[] blogImage;
 
-	@Column(name = "category", nullable = false)
 	private String category;
-
+	private FileBucket fileBucket;
 	public String getTitle() {
 		return title;
 	}
@@ -136,8 +104,6 @@ public class BlogDetails extends AbstractEntity implements java.io.Serializable 
 		this.paragraphFour = paragraphFour;
 	}
 
-	
-	
 	public String getParagraphFive() {
 		return paragraphFive;
 	}
@@ -245,16 +211,13 @@ public class BlogDetails extends AbstractEntity implements java.io.Serializable 
 		this.blogName = blogName;
 	}
 
-	@Override
-	public Timestamp getCrtTs() {
-
-		return this.crtTs;
+	public FileBucket getFileBucket() {
+		return fileBucket;
 	}
 
-	@Override
-	public void setCrtTs(Timestamp crtTs) {
-		this.crtTs = crtTs;
-
+	public void setFileBucket(FileBucket fileBucket) {
+		this.fileBucket = fileBucket;
 	}
 
+	
 }

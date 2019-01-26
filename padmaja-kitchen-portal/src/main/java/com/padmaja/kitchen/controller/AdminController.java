@@ -128,6 +128,16 @@ public class AdminController {
 		
 		return "adminHome";
 	}
+	
+	
+	@RequestMapping(value="/adminHome", method = RequestMethod.GET)
+	public String adminHome(@Valid FileBucket fileBucket, BindingResult result, ModelMap model) throws IOException {
+
+		return "adminHome";
+		
+	}
+
+	
 /*
 	@RequestMapping(value="/multiUpload", method = RequestMethod.POST)
 	public String multiFileUpload(@Valid MultiFileBucket multiFileBucket, BindingResult result, ModelMap model) throws IOException {
