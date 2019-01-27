@@ -14,7 +14,7 @@
 				<ul>
 					<li><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span> Phone :+ (91)9972792068</li>
 					<li><span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span> Fax :+ (91)9972792068</li>
-					<li><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span><a href="mailto:info@smsaware.in">info@smsaware.in</a></li>
+					<li><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span><a href="mailto:info@smsaware.in">info@padmajakitchen.com</a></li>
 				</ul>
 			</div>
 			<div class="col-md-8 wthree_contact_left">

@@ -80,22 +80,186 @@ public class AppController {
 	}
 
 	@RequestMapping(value = { "/vegRecipe"}, method = RequestMethod.GET)
-	public String vegRecipePage(ModelMap model) {
+	public String vegRecipePage(ModelMap model,HttpServletRequest request, HttpServletResponse response) {
+		
+		HttpSession session = request.getSession();
+		List<VideoDetails> videoListFromSession = (List<VideoDetails>) session.getAttribute("videoList");
+		List<BlogDetailsDto> blogDetailsDtoFromSession = (List<BlogDetailsDto>) session.getAttribute("popularImageList");
+		List<BlogDetailsDto> recentFromSession = (List<BlogDetailsDto>) session.getAttribute("recentlyImageList");
+		List<BlogDetailsDto> newFromSession = (List<BlogDetailsDto>) session.getAttribute("newImageList");
+		if (videoListFromSession != null) {
+			System.out.println("getting from session&&&&&&&");
+			request.setAttribute("videoList", videoListFromSession);
+		} else {
+			System.out.println("getting from database@@@@@@@@@@@@");
+			List<VideoDetails> videoList = homeVideoService.findAll();
+			session.setAttribute("videoList", videoList);
+			model.addAttribute("videoList", videoList);
+		}
+		if(blogDetailsDtoFromSession!=null){
+			System.out.println("getting from session popularImageList");
+			model.addAttribute("popularImageList", blogDetailsDtoFromSession);
+		}else{
+			List<BlogDetailsDto> imageList =getPopularimage();
+			session.setAttribute("popularImageList", imageList);
+			model.addAttribute("popularImageList", imageList);
+		}
+		//recent
+		if(recentFromSession!=null){
+			System.out.println("getting from session recentImageList");
+			model.addAttribute("recentlyImageList", recentFromSession);
+		}else{
+			List<BlogDetailsDto> imageList =getRecentlyimage();
+			session.setAttribute("recentlyImageList", imageList);
+			model.addAttribute("recentlyImageList", imageList);
+		}
+		//new
+		if(newFromSession!=null){
+			System.out.println("getting from session newImageList");
+			model.addAttribute("newImageList", newFromSession);
+		}else{
+			List<BlogDetailsDto> imageList =getNewimage();
+			session.setAttribute("newImageList", imageList);
+			model.addAttribute("newImageList", imageList);
+		}
 		return "vegRecipe";
 	}
 	
 	@RequestMapping(value = { "/nonVegRecipe"}, method = RequestMethod.GET)
-	public String nonVegRecipePage(ModelMap model) {
+	public String nonVegRecipePage(ModelMap model,HttpServletRequest request, HttpServletResponse response) {
+		HttpSession session = request.getSession();
+		List<VideoDetails> videoListFromSession = (List<VideoDetails>) session.getAttribute("videoList");
+		List<BlogDetailsDto> blogDetailsDtoFromSession = (List<BlogDetailsDto>) session.getAttribute("popularImageList");
+		List<BlogDetailsDto> recentFromSession = (List<BlogDetailsDto>) session.getAttribute("recentlyImageList");
+		List<BlogDetailsDto> newFromSession = (List<BlogDetailsDto>) session.getAttribute("newImageList");
+		if (videoListFromSession != null) {
+			System.out.println("getting from session&&&&&&&");
+			request.setAttribute("videoList", videoListFromSession);
+		} else {
+			System.out.println("getting from database@@@@@@@@@@@@");
+			List<VideoDetails> videoList = homeVideoService.findAll();
+			session.setAttribute("videoList", videoList);
+			model.addAttribute("videoList", videoList);
+		}
+		if(blogDetailsDtoFromSession!=null){
+			System.out.println("getting from session popularImageList");
+			model.addAttribute("popularImageList", blogDetailsDtoFromSession);
+		}else{
+			List<BlogDetailsDto> imageList =getPopularimage();
+			session.setAttribute("popularImageList", imageList);
+			model.addAttribute("popularImageList", imageList);
+		}
+		//recent
+		if(recentFromSession!=null){
+			System.out.println("getting from session recentImageList");
+			model.addAttribute("recentlyImageList", recentFromSession);
+		}else{
+			List<BlogDetailsDto> imageList =getRecentlyimage();
+			session.setAttribute("recentlyImageList", imageList);
+			model.addAttribute("recentlyImageList", imageList);
+		}
+		//new
+		if(newFromSession!=null){
+			System.out.println("getting from session newImageList");
+			model.addAttribute("newImageList", newFromSession);
+		}else{
+			List<BlogDetailsDto> imageList =getNewimage();
+			session.setAttribute("newImageList", imageList);
+			model.addAttribute("newImageList", imageList);
+		}
+		
 		return "nonVegRecipe";
 	}
 
 	@RequestMapping(value = { "/about"}, method = RequestMethod.GET)
-	public String aboutPage(ModelMap model) {
+	public String aboutPage(ModelMap model,HttpServletRequest request, HttpServletResponse response) {
+		HttpSession session = request.getSession();
+		List<VideoDetails> videoListFromSession = (List<VideoDetails>) session.getAttribute("videoList");
+		List<BlogDetailsDto> blogDetailsDtoFromSession = (List<BlogDetailsDto>) session.getAttribute("popularImageList");
+		List<BlogDetailsDto> recentFromSession = (List<BlogDetailsDto>) session.getAttribute("recentlyImageList");
+		List<BlogDetailsDto> newFromSession = (List<BlogDetailsDto>) session.getAttribute("newImageList");
+		if (videoListFromSession != null) {
+			System.out.println("getting from session&&&&&&&");
+			request.setAttribute("videoList", videoListFromSession);
+		} else {
+			System.out.println("getting from database@@@@@@@@@@@@");
+			List<VideoDetails> videoList = homeVideoService.findAll();
+			session.setAttribute("videoList", videoList);
+			model.addAttribute("videoList", videoList);
+		}
+		if(blogDetailsDtoFromSession!=null){
+			System.out.println("getting from session popularImageList");
+			model.addAttribute("popularImageList", blogDetailsDtoFromSession);
+		}else{
+			List<BlogDetailsDto> imageList =getPopularimage();
+			session.setAttribute("popularImageList", imageList);
+			model.addAttribute("popularImageList", imageList);
+		}
+		//recent
+		if(recentFromSession!=null){
+			System.out.println("getting from session recentImageList");
+			model.addAttribute("recentlyImageList", recentFromSession);
+		}else{
+			List<BlogDetailsDto> imageList =getRecentlyimage();
+			session.setAttribute("recentlyImageList", imageList);
+			model.addAttribute("recentlyImageList", imageList);
+		}
+		//new
+		if(newFromSession!=null){
+			System.out.println("getting from session newImageList");
+			model.addAttribute("newImageList", newFromSession);
+		}else{
+			List<BlogDetailsDto> imageList =getNewimage();
+			session.setAttribute("newImageList", imageList);
+			model.addAttribute("newImageList", imageList);
+		}
+		
 		return "about";
 	}
 	
 	@RequestMapping(value = { "/contact"}, method = RequestMethod.GET)
-	public String contactPage(ModelMap model) {
+	public String contactPage(ModelMap model,HttpServletRequest request, HttpServletResponse response) {
+		HttpSession session = request.getSession();
+		List<VideoDetails> videoListFromSession = (List<VideoDetails>) session.getAttribute("videoList");
+		List<BlogDetailsDto> blogDetailsDtoFromSession = (List<BlogDetailsDto>) session.getAttribute("popularImageList");
+		List<BlogDetailsDto> recentFromSession = (List<BlogDetailsDto>) session.getAttribute("recentlyImageList");
+		List<BlogDetailsDto> newFromSession = (List<BlogDetailsDto>) session.getAttribute("newImageList");
+		if (videoListFromSession != null) {
+			System.out.println("getting from session&&&&&&&");
+			request.setAttribute("videoList", videoListFromSession);
+		} else {
+			System.out.println("getting from database@@@@@@@@@@@@");
+			List<VideoDetails> videoList = homeVideoService.findAll();
+			session.setAttribute("videoList", videoList);
+			model.addAttribute("videoList", videoList);
+		}
+		if(blogDetailsDtoFromSession!=null){
+			System.out.println("getting from session popularImageList");
+			model.addAttribute("popularImageList", blogDetailsDtoFromSession);
+		}else{
+			List<BlogDetailsDto> imageList =getPopularimage();
+			session.setAttribute("popularImageList", imageList);
+			model.addAttribute("popularImageList", imageList);
+		}
+		//recent
+		if(recentFromSession!=null){
+			System.out.println("getting from session recentImageList");
+			model.addAttribute("recentlyImageList", recentFromSession);
+		}else{
+			List<BlogDetailsDto> imageList =getRecentlyimage();
+			session.setAttribute("recentlyImageList", imageList);
+			model.addAttribute("recentlyImageList", imageList);
+		}
+		//new
+		if(newFromSession!=null){
+			System.out.println("getting from session newImageList");
+			model.addAttribute("newImageList", newFromSession);
+		}else{
+			List<BlogDetailsDto> imageList =getNewimage();
+			session.setAttribute("newImageList", imageList);
+			model.addAttribute("newImageList", imageList);
+		}
+		
 		return "contact";
 	}
 	

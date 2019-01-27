@@ -5,10 +5,12 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+ <!-- Custom CSS -->
+	  <link rel="stylesheet" href="assets/css/main.css">
 </head>
 <body>
 <!-- End mainmenu area -->
-            <section class="job-browse section">
+            <section class="job-browse section" style="padding: 5px 0;">
                 <div class="container">
                     <div class="row">
                         <div class="col-md-9 col-sm-8">
@@ -97,7 +99,32 @@
 
                     </div>
                  
-                    <aside id="sidebar" class="col-md-3 right-sidebar">
+                 	<div class="col-md-3 col-sm-4">
+                            <aside>
+                                <div class="sidebar">
+                                    <div class="inner-box">
+                                        <h3>Categories</h3>
+                                        <ul class="cat-list">
+                                            <li><a href="#">BreakFast Creeds <span class="num-posts">(4,287)
+										</span></a></li>
+                                            <li><a href="#">Launch Creeds <span class="num-posts">(4,256)
+										</span></a></li>
+                                            <li><a href="#">Morning Creeds<span class="num-posts">(4,256)
+										</span></a></li>
+                                            <li><a href="#">Evening Creeds <span class="num-posts">(4,256)
+										</span></a></li>
+                                            <li><a href="#">Dinar Creeds <span
+									class="num-posts">(4,256)</span></a></li>
+                                            
+                                        </ul>
+                                    </div>
+                                   
+                                </div>
+                            </aside>
+                        </div>
+                 
+                 
+                    <!-- <aside id="sidebar" class="col-md-3 right-sidebar">
                         <div class="widget widget-categories inner-box">
                             <h5 class="widget-title">Categories</h5>
                             <ul class="cat-list">
@@ -115,7 +142,7 @@
                             </ul>
                         </div>
                        
-                    </aside>
+                    </aside> -->
                 </div>
             </div>
             </section><!-- content close -->

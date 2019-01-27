@@ -2970,12 +2970,12 @@ table.add-manage-table > tbody > tr > th {
 blockquote {
   border-left: none;
   padding: 30px;
-  background: #ff4f57;
+  background: #f5f5f5;
 }
 blockquote .quote-text {
   font-size: 20px;
   font-weight: 400;
-  color: #FFF;
+  color: #131212;
   line-height: 34px;
 }
 blockquote p {

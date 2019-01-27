@@ -1,68 +1,55 @@
 <%@ page isELIgnored="false"%>
+<%@page
+	import="javax.servlet.*,javax.servlet.http.*,java.sql.*,java.io.*"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html>
 <head>
-
-
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-	<%-- <title>Document Singing</title>
-	<link href="<c:url value='/static/css/bootstrap.css' />"  rel="stylesheet"></link>
-	<link href="<c:url value='/static/css/app.css' />" rel="stylesheet"></link> --%>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+
 </head>
 
 </head>
 <body>
+<!-- End main content area start-->
+	<div class="maincontent-area">
+		<div class="zigzag-bottom"></div>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="latest-product">
+						<h2 class="section-title">Veg Racipe</h2>
+						<div class="product-carousel">
 
-	<%-- <h3>Document Singing</h3>
+							<c:forEach var="product" items="${videoList}" varStatus="i">
+								<%-- ${product}<br> --%>
+								<div class="single-product">
+									<div class="product-f-image">
+										<iframe width="560" height="315"
+											src="https://www.youtube.com/embed/${product.youtubeId}"
+											frameborder="0"
+											allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+											allowfullscreen></iframe>
 
+										<div class="product-hover">
+											<!-- <a href="#" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Add to cart</a>-->
+											<a href="https://youtu.be/${product.youtubeId}"
+												class="view-details-link" target="_blank"><i
+												class="fa fa-link"></i> See details</a>
+										</div>
+									</div>
 
-	<div class="form-container">
-		<h1>Welcome to Document Singing</h1>
-		
-		Click on below links to see FileUpload in action.<br/><br/>
-		
-		<a href="${pageContext.request.contextPath}/singleUpload">Single File Upload</a>  OR  <a href="${pageContext.request.contextPath}/multiUpload">Multi File Upload</a>
-	</div> --%>
-	
-	<form method="post" action="userRegistration.jsp">
-            <center>
-            <table border="1" width="30%" cellpadding="5">
-                <thead>
-                    <tr>
-                        <th colspan="2">Enter Information Here</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>First Name</td>
-                        <td><input type="text" name="firstName" value="" /></td>
-                    </tr>
-                    <tr>
-                        <td>Last Name</td>
-                        <td><input type="text" name="lastName" value="" /></td>
-                    </tr>
-                    <tr>
-                        <td>Email</td>
-                        <td><input type="text" name="email" value="" /></td>
-                    </tr>
-                    <tr>
-                        <td>User Name</td>
-                        <td><input type="text" name="userName" value="" /></td>
-                    </tr>
-                    <tr>
-                        <td>Password</td>
-                        <td><input type="password" name="password" value="" /></td>
-                    </tr>
-                    <tr>
-                        <td><input type="submit" value="Submit" /></td>
-                        <td><input type="reset" value="Reset" /></td>
-                    </tr>
-                    <tr>
-                        <td colspan="2">Already registered!! <a href="index.jsp">Login Here</a></td>
-                    </tr>
-                </tbody>
-            </table>
-            </center>
-        </form>
-  </body>
+									<h2>
+										<a href="single-product.jsp">${product.videoName}</a>
+									</h2>
+								</div>
+							</c:forEach>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- End main content area -->
+</body>
 </html>
