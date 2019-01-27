@@ -13,6 +13,17 @@
        <put-attribute name="footer" value="/WEB-INF/views/tiles/template/defaultFooter.jsp" />  
    </definition>  
  
+ <!-- Base Definition -->
+   <definition name="base-admin-definition" 
+       template="/WEB-INF/views/tiles/layouts/defaultAdminLayout.jsp">  
+       <put-attribute name="title" value="" />  
+       <put-attribute name="adminHeader" value="/WEB-INF/views/tiles/template/defaultAdminHeader.jsp" />  
+      <!--  <put-attribute name="defaultBlog" value="/WEB-INF/views/tiles/template/defaultBlogDetails.jsp" />  -->
+       <put-attribute name="body" value="" />  
+       <put-attribute name="footer" value="/WEB-INF/views/tiles/template/defaultFooter.jsp" />  
+   </definition> 
+ 
+ 
    <!-- Home Page -->
    <definition name="home" extends="base-definition">  
        <put-attribute name="title" value="Home" />  
@@ -44,13 +55,13 @@
    </definition> 
    
     <!-- Admin Login Page -->
-   <definition name="login" extends="base-definition">  
+   <definition name="login" extends="base-admin-definition">  
        <put-attribute name="title" value="Admin Login" />  
        <put-attribute name="body" value="/WEB-INF/views/pages/login.jsp" />  
    </definition>
    
     <!-- Admin Login Page -->
-   <definition name="adminHome" extends="base-definition">  
+   <definition name="adminHome" extends="base-admin-definition">  
        <put-attribute name="title" value="Admin Home" />  
        <put-attribute name="body" value="/WEB-INF/views/pages/adminHome.jsp" />  
    </definition>

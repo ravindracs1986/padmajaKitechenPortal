@@ -105,7 +105,7 @@ a:focus {
   opacity: 0.8;
 }
 .btn-common {
-  background-color: #ff4f57;
+  background-color: #5a88ca;
   border: none;
   border-radius: 50px;
   text-transform: uppercase;
@@ -1776,15 +1776,15 @@ footer {
 .pagination > .active > span,
 .pagination > .active > span:focus,
 .pagination > .active > span:hover {
-  background-color: #ff4f57 !important;
+  background-color: #5a88ca !important;
   border-color: #ff4f57 !important;
 }
 .pagination > li > a:focus,
 .pagination > li > a:hover,
 .pagination > li > span:focus,
 .pagination > li > span:hover {
-  background: #ff4f57;
-  border-color: #ff4f57;
+  background: #5a88ca;
+  border-color: #5a88ca;
   color: #fff;
 }
 .pagination > .active > a,

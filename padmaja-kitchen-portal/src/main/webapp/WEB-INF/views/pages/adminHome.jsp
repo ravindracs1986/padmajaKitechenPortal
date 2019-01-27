@@ -8,6 +8,26 @@
 
  <body>
 
+
+<div class="header-area">
+         <div class="container">
+            <div class="row">
+               <div class="col-md-8">
+                  <div class="user-menu">
+                     <ul>
+                        <li><a href="#"><i class="fa fa-user"></i> My Account</a></li>
+                        <li><a href="${pageContext.request.contextPath}/Logout"><i
+                           class="fa fa-user"></i> Logout</a></li>
+                       <%--  <li><a href="${pageContext.request.contextPath}/AddBlog"><i
+                           class="fa fa-user"></i> Add Blog</a></li> --%>
+                     </ul>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+
+
 <div class="maincontent-area">
     <div class="zigzag-bottom"></div>
     <div class="container">
