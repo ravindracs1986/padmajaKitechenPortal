@@ -16,10 +16,16 @@ import com.padmaja.kitchen.core.AbstractEntity;
 
 /**
  * 
- * CREATE TABLE `padmaja_kitchen`.`video_registration` ( `id` INT NOT NULL,
- * `video_name` VARCHAR(45) NULL, `video_url` VARCHAR(45) NULL, `video_category`
- * VARCHAR(45) NULL, `youtube_id` VARCHAR(45) NULL, `crt_dt` DATE NULL, PRIMARY
- * KEY (`id`), UNIQUE INDEX `id_UNIQUE` (`id` ASC));
+ * CREATE TABLE padmaja_kitchen.video_registration (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `video_name` varchar(45) DEFAULT NULL,
+  `video_url` varchar(45) DEFAULT NULL,
+  `video_category` varchar(45) DEFAULT NULL,
+  `youtube_id` varchar(45) DEFAULT NULL,
+  `CRT_TS` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `id_UNIQUE` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=latin1;
  * 
  * 
  * 

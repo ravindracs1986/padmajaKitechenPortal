@@ -6,14 +6,17 @@
 
 			<div class="agile_about_grids">
 				<div class="col-md-6 agile_about_grid_left">
-					<div class="col-md-6 agile_about_grid_left1">
+				<img src="assets/img/newbanner.png" alt=" " class="img-responsive"/>
+				<img src="assets/img/logo.png" alt=" " class="img-responsive"/>
+					<!-- <div class="col-md-6 agile_about_grid_left1">
+					<img src="assets/img/newbanner.png" alt=" " class="img-responsive"/>
 						<img src="images/insta6.jpg" alt=" " class="img-responsive" />
 					</div>
 					<div class="col-md-6 agile_about_grid_left1">
 						<img src="images/insta1.jpg" alt=" " class="img-responsive" />
 					</div>
 					<div class="clearfix"> </div>
-					<img class="agile_about_grid_left_img img-responsive" src="images/banner.jpg" alt=" " />
+					<img class="agile_about_grid_left_img img-responsive" src="images/banner.jpg" alt=" " /> -->
 				</div>
 				<div class="col-md-6 agile_about_grid_right">
 					<h4>Why we are different</h4>
