@@ -26,11 +26,10 @@ public class BlogDetailsService extends com.padmaja.kitchen.core.AbstractService
 		return blogDetailsRepo;
 	}
 	
-	/*@Transactional(readOnly=false,rollbackFor=Exception.class)
-	public UserProfile getUserProfile(String email){
-		log.info("findbyEmail method in UserProfileService class ");
-		UserProfile usr= userProfileRepo.findbyEmail(email);
-		return usr;
-	}*/
+	@Transactional(readOnly=false,rollbackFor=Exception.class)
+	public BlogDetails getById(Long id){
+		BlogDetails blogDetails= blogDetailsRepo.findbyId(id);
+		return blogDetails;
+	}
 
 }

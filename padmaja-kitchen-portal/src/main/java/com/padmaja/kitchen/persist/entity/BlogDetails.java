@@ -79,6 +79,8 @@ public class BlogDetails extends AbstractEntity implements java.io.Serializable 
 
 	@Column(name = "category", nullable = false)
 	private String category;
+	@Column(name = "description", nullable = false)
+	private String description;
 
 	public String getTitle() {
 		return title;
@@ -216,6 +218,14 @@ public class BlogDetails extends AbstractEntity implements java.io.Serializable 
 
 	public void setCategory(String category) {
 		this.category = category;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
 	public byte[] getBlogImage() {

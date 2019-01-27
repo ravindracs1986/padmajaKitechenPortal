@@ -50,6 +50,7 @@ public class BlogDetailsDto implements java.io.Serializable {
 	private FileBucket fileBucket;
 	private String crtDate;
 	private String imageString;
+	private String description;
 
 	public String getTitle() {
 		return title;
@@ -234,5 +235,14 @@ public class BlogDetailsDto implements java.io.Serializable {
 	public void setImageString(String imageString) {
 		this.imageString = imageString;
 	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+	
 
 }

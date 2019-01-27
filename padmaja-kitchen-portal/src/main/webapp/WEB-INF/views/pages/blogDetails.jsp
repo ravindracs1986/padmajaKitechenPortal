@@ -14,7 +14,7 @@
                         <div class="col-md-9 col-sm-8">
                             <div class="blog-post">
                                 <div class="post-content">
-                                    <h3 class="post-title"><a href="#"><u>maggi pakoda recipe with all Details:</u></a></h3>
+                                    <h3 class="post-title"><a href="#"><u>${details.title}:</u></a></h3>
                                     <div class="meta">
                                         <span class="meta-part"><a href="#"><i
 										class="ti-user"></i> By Admin</a></span> <span class="meta-part"><i

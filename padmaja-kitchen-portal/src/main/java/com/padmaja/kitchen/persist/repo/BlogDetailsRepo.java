@@ -21,10 +21,10 @@ import com.padmaja.kitchen.persist.entity.VideoDetails;
 @Qualifier("blogDetailsRepo")
 public interface BlogDetailsRepo extends GenericRepository<BlogDetails> {
 
-	/*@Query("select usr from UserProfile usr where usr.email = :email")
-	public UserProfile findbyEmail(@Param("email") String email);
+	@Query("select detail from BlogDetails detail where detail.id = :id")
+	public BlogDetails findbyId(@Param("id") Long id);
 	
-	@Modifying
+	/*@Modifying
 	@Query("update UserProfile u set u.status =:status WHERE u.email = :email")
 	public int updateAuthentication(@Param("status") String status,@Param("email") String email);*/
 

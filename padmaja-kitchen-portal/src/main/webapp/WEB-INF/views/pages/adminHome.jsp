@@ -161,6 +161,11 @@
                          <textarea name="notes" class="form-control" id="notes" placeholder="notes"></textarea>
                      </div>
                      
+                     <div class="form-group col-md-6">
+                         <label for="description">Description</label>
+                         <textarea name="description" class="form-control" id="description" placeholder="Description"></textarea>
+                     </div>
+                     
                  </div>
                  
                  <div class="form-row">
