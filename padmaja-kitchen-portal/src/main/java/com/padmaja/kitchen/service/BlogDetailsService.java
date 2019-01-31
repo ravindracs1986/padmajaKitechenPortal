@@ -1,5 +1,7 @@
 package com.padmaja.kitchen.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Scope;
@@ -29,6 +31,12 @@ public class BlogDetailsService extends com.padmaja.kitchen.core.AbstractService
 	@Transactional(readOnly=false,rollbackFor=Exception.class)
 	public BlogDetails getById(Long id){
 		BlogDetails blogDetails= blogDetailsRepo.findbyId(id);
+		return blogDetails;
+	}
+	
+	@Transactional(readOnly=false,rollbackFor=Exception.class)
+	public List<BlogDetails> getByCategory(String category){
+		List<BlogDetails> blogDetails= blogDetailsRepo.getByCategory(category);
 		return blogDetails;
 	}
 

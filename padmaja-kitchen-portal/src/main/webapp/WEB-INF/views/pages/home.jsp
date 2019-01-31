@@ -33,7 +33,7 @@
 			<div class="row">
 				<div class="col-md-12">
 					<div class="latest-product">
-						<h2 class="section-title">Latest Video</h2>
+						<h2 class="section-title navbar-collapse collapse">Latest Video</h2>
 						<div class="product-carousel">
 
 							<c:forEach var="product" items="${videoList}" varStatus="i">

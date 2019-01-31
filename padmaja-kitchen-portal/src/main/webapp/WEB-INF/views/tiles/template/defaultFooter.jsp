@@ -3,7 +3,7 @@
     <div class="zigzag-bottom"></div>
     <div class="container">
         <div class="row">
-            <div class="col-md-3 col-sm-6">
+            <div class="col-md-4 col-sm-6">
                 <div class="footer-about-us">
                     <h2>Padmaja<span>Kitchen</span></h2>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis sunt id doloribus vero quam laborum quas alias dolores blanditiis iusto consequatur, modi aliquid eveniet eligendi iure eaque ipsam iste, pariatur omnis sint! Suscipit, debitis, quisquam. Laborum commodi veritatis magni at?</p>
@@ -13,7 +13,7 @@
                 </div>
             </div>
 
-            <div class="col-md-3 col-sm-6">
+            <!-- <div class="col-md-3 col-sm-6">
                 <div class="footer-menu">
                     <h2 class="footer-wid-title">Courses</h2>
                     <ul>
@@ -23,22 +23,22 @@
                         
                     </ul>
                 </div>
-            </div>
+            </div> -->
 
-            <div class="col-md-3 col-sm-6">
+            <div class="col-md-4 col-sm-6">
                 <div class="footer-menu">
                     <h2 class="footer-wid-title">Categories</h2>
                     <ul>
-                        <li><a href="#">BreakFast Creeds</a></li>
-                        <li><a href="#">Launch Creeds</a></li>
-                        <li><a href="#">Morning Creeds</a></li>
-                        <li><a href="#">Evening Creeds</a></li>
-                        <li><a href="#">Dinar Creeds</a></li>
+                        <li><a href="${pageContext.request.contextPath}/breakFast-creeds">BreakFast Creeds</a></li>
+                        <li><a href="${pageContext.request.contextPath}/launch-creeds">Launch Creeds</a></li>
+                        <li><a href="${pageContext.request.contextPath}/morning-creeds">Morning Creeds</a></li>
+                        <li><a href="${pageContext.request.contextPath}/evening-creeds">Evening Creeds</a></li>
+                        <li><a href="${pageContext.request.contextPath}/dinar-creeds">Dinar Creeds</a></li>
                     </ul>
                 </div>
             </div>
 
-            <div class="col-md-3 col-sm-6">
+            <div class="col-md-4 col-sm-6">
                 <div class="footer-newsletter">
                     <h2 class="footer-wid-title">Subscription</h2>
                     <p>for subscription please provide us your email id and enjoy our you tube video!</p>

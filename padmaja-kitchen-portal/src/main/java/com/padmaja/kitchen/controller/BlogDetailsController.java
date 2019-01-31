@@ -8,6 +8,7 @@ import java.util.List;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.apache.commons.codec.binary.Base64;
@@ -24,6 +25,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.padmaja.kitchen.model.BlogDetailsDto;
 import com.padmaja.kitchen.model.FileBucket;
 import com.padmaja.kitchen.persist.entity.BlogDetails;
+import com.padmaja.kitchen.persist.entity.VideoDetails;
 import com.padmaja.kitchen.service.BlogDetailsService;
 import com.padmaja.kitchen.util.DateUtil;
 
@@ -174,6 +176,233 @@ public class BlogDetailsController {
 		}
 		return "adminHome";
 	}
+	/**
+	 * getBreakFastCreeds
+	 * @param model
+	 * @param request
+	 * @param response
+	 * @return
+	 */
 	
+	@RequestMapping(value="/breakFast-creeds", method = RequestMethod.GET)
+	public String getBreakFastCreeds(ModelMap model,HttpServletRequest request, HttpServletResponse response) {
+		FileBucket fileModel = new FileBucket();
+		List<BlogDetailsDto> imageList =null;
+		model.addAttribute("fileBucket", fileModel);
+		logger.info("getBreakFastCreeds get method call");
+		HttpSession session = request.getSession();
+		 imageList = (List<BlogDetailsDto>) session.getAttribute("breakFastCreedsList");
+		
+		List<BlogDetailsDto> imageDetailList= new ArrayList<BlogDetailsDto>();
+		if(imageList!=null && imageList.size()>0){
+			
+			for (BlogDetailsDto dto : imageList) {
+				
+				imageDetailList.add(dto);
+			}
+			System.out.println("getting from session recentImageList");
+			model.addAttribute("imageDetailList", imageDetailList);
+		}else{
+			List<BlogDetails> blogDetailsList =blogDetailsService.getByCategory("breakFast-creeds");
+			for (BlogDetails blogDetails : blogDetailsList) {
+				BlogDetailsDto dto= new BlogDetailsDto();
+				dto.setBlogName(blogDetails.getBlogName());
+				dto.setCrtDate(""+blogDetails.getCrtTs());
+				dto.setId(blogDetails.getId());
+				try {
+					dto.setImageString(new String(Base64.encodeBase64(blogDetails.getBlogImage()), "UTF-8"));
+				} catch (UnsupportedEncodingException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				imageDetailList.add(dto);
+			}
+			session.setAttribute("breakFastCreedsList", imageDetailList);
+			model.addAttribute("imageDetailList", imageDetailList);
+			
+		}
+		
+		
+		return "blogDetailsList";
+	}
 	
+	/**
+	 * launch-creeds
+	 */
+	@RequestMapping(value="/launch-creeds", method = RequestMethod.GET)
+	public String getlaunchCreeds(ModelMap model,HttpServletRequest request, HttpServletResponse response) {
+		FileBucket fileModel = new FileBucket();
+		List<BlogDetailsDto> imageList =null;
+		model.addAttribute("fileBucket", fileModel);
+		logger.info("getlaunchCreeds get method call");
+		HttpSession session = request.getSession();
+		 imageList = (List<BlogDetailsDto>) session.getAttribute("launchCreedsList");
+		
+		List<BlogDetailsDto> imageDetailList= new ArrayList<BlogDetailsDto>();
+		if(imageList!=null && imageList.size()>0){
+			
+			for (BlogDetailsDto dto : imageList) {
+				
+				imageDetailList.add(dto);
+			}
+			System.out.println("getting from session recentImageList");
+			model.addAttribute("imageDetailList", imageDetailList);
+		}else{
+			List<BlogDetails> blogDetailsList =blogDetailsService.getByCategory("launch-creeds");
+			for (BlogDetails blogDetails : blogDetailsList) {
+				BlogDetailsDto dto= new BlogDetailsDto();
+				dto.setBlogName(blogDetails.getBlogName());
+				dto.setCrtDate(""+blogDetails.getCrtTs());
+				dto.setId(blogDetails.getId());
+				try {
+					dto.setImageString(new String(Base64.encodeBase64(blogDetails.getBlogImage()), "UTF-8"));
+				} catch (UnsupportedEncodingException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				imageDetailList.add(dto);
+			}
+			session.setAttribute("launchCreedsList", imageDetailList);
+			model.addAttribute("imageDetailList", imageDetailList);
+			
+		}
+		
+		
+		return "blogDetailsList";
+	}
+	
+	/**
+	 * morning-creeds
+	 */
+	@RequestMapping(value="/morning-creeds", method = RequestMethod.GET)
+	public String getmorningCreeds(ModelMap model,HttpServletRequest request, HttpServletResponse response) {
+		FileBucket fileModel = new FileBucket();
+		List<BlogDetailsDto> imageList =null;
+		model.addAttribute("fileBucket", fileModel);
+		logger.info("getmorningCreeds get method call");
+		HttpSession session = request.getSession();
+		 imageList = (List<BlogDetailsDto>) session.getAttribute("morningCreedsList");
+		
+		List<BlogDetailsDto> imageDetailList= new ArrayList<BlogDetailsDto>();
+		if(imageList!=null && imageList.size()>0){
+			
+			for (BlogDetailsDto dto : imageList) {
+				
+				imageDetailList.add(dto);
+			}
+			System.out.println("getting from session recentImageList");
+			model.addAttribute("imageDetailList", imageDetailList);
+		}else{
+			List<BlogDetails> blogDetailsList =blogDetailsService.getByCategory("morning-creeds");
+			for (BlogDetails blogDetails : blogDetailsList) {
+				BlogDetailsDto dto= new BlogDetailsDto();
+				dto.setBlogName(blogDetails.getBlogName());
+				dto.setCrtDate(""+blogDetails.getCrtTs());
+				dto.setId(blogDetails.getId());
+				try {
+					dto.setImageString(new String(Base64.encodeBase64(blogDetails.getBlogImage()), "UTF-8"));
+				} catch (UnsupportedEncodingException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				imageDetailList.add(dto);
+			}
+			session.setAttribute("morningCreedsList", imageDetailList);
+			model.addAttribute("imageDetailList", imageDetailList);
+			
+		}
+		
+		
+		return "blogDetailsList";
+	}
+	
+	/**
+	 * evening-creeds
+	 */
+	@RequestMapping(value="/evening-creeds", method = RequestMethod.GET)
+	public String geteveningCreeds(ModelMap model,HttpServletRequest request, HttpServletResponse response) {
+		FileBucket fileModel = new FileBucket();
+		List<BlogDetailsDto> imageList =null;
+		model.addAttribute("fileBucket", fileModel);
+		logger.info("geteveningCreeds get method call");
+		HttpSession session = request.getSession();
+		 imageList = (List<BlogDetailsDto>) session.getAttribute("eveningCreedsList");
+		
+		List<BlogDetailsDto> imageDetailList= new ArrayList<BlogDetailsDto>();
+		if(imageList!=null && imageList.size()>0){
+			
+			for (BlogDetailsDto dto : imageList) {
+				
+				imageDetailList.add(dto);
+			}
+			System.out.println("getting from session recentImageList");
+			model.addAttribute("imageDetailList", imageDetailList);
+		}else{
+			List<BlogDetails> blogDetailsList =blogDetailsService.getByCategory("evening-creeds");
+			for (BlogDetails blogDetails : blogDetailsList) {
+				BlogDetailsDto dto= new BlogDetailsDto();
+				dto.setBlogName(blogDetails.getBlogName());
+				dto.setCrtDate(""+blogDetails.getCrtTs());
+				dto.setId(blogDetails.getId());
+				try {
+					dto.setImageString(new String(Base64.encodeBase64(blogDetails.getBlogImage()), "UTF-8"));
+				} catch (UnsupportedEncodingException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				imageDetailList.add(dto);
+			}
+			session.setAttribute("eveningCreedsList", imageDetailList);
+			model.addAttribute("imageDetailList", imageDetailList);
+			
+		}
+		
+		
+		return "blogDetailsList";
+	}
+	
+	/**
+	 * dinar-creeds
+	 */
+	@RequestMapping(value="/dinar-creeds", method = RequestMethod.GET)
+	public String getdinarCreeds(ModelMap model,HttpServletRequest request, HttpServletResponse response) {
+		FileBucket fileModel = new FileBucket();
+		List<BlogDetailsDto> imageList =null;
+		model.addAttribute("fileBucket", fileModel);
+		logger.info("getdinarCreeds get method call");
+		HttpSession session = request.getSession();
+		 imageList = (List<BlogDetailsDto>) session.getAttribute("dinarCreedsList");
+		
+		List<BlogDetailsDto> imageDetailList= new ArrayList<BlogDetailsDto>();
+		if(imageList!=null && imageList.size()>0){
+			
+			for (BlogDetailsDto dto : imageList) {
+				
+				imageDetailList.add(dto);
+			}
+			System.out.println("getting from session recentImageList");
+			model.addAttribute("imageDetailList", imageDetailList);
+		}else{
+			List<BlogDetails> blogDetailsList =blogDetailsService.getByCategory("dinar-creeds");
+			for (BlogDetails blogDetails : blogDetailsList) {
+				BlogDetailsDto dto= new BlogDetailsDto();
+				dto.setBlogName(blogDetails.getBlogName());
+				dto.setCrtDate(""+blogDetails.getCrtTs());
+				dto.setId(blogDetails.getId());
+				try {
+					dto.setImageString(new String(Base64.encodeBase64(blogDetails.getBlogImage()), "UTF-8"));
+				} catch (UnsupportedEncodingException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				imageDetailList.add(dto);
+			}
+			session.setAttribute("dinarCreedsList", imageDetailList);
+			model.addAttribute("imageDetailList", imageDetailList);
+			
+		}
+		
+		
+		return "blogDetailsList";
+	}
 }

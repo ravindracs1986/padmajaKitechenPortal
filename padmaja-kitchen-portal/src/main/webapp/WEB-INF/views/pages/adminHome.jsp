@@ -5,10 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 </head>
-
- <body>
-
-
+<body>
 <div class="header-area">
          <div class="container">
             <div class="row">
@@ -50,10 +47,7 @@
 
                          </select>
                      </div> 
-                     
-                     
-                     
-                     <div class="form-group col-md-6">
+                      <div class="form-group col-md-6">
                          <label for="videoName">Video Name:</label>
                          <input type="text" class="form-control" name="videoName" placeholder="VideoName">
                      </div>
@@ -200,8 +194,11 @@
                          <label for="category">Category:</label>
                          <select id="category" class="form-control" name="category">
                              <option value="Select-Category" selected>Please Select</option>
-                             <option value="BreakFast-Creeds">BreakFast Creeds</option>
-                             <option value="Launch-Creeds">Launch Creeds</option>
+                             <option value="breakFast-creeds">BreakFast Creeds</option>
+                             <option value="launch-creeds">Launch Creeds</option>
+                             <option value="morning-creeds">Morning Creeds</option>
+                              <option value="evening-creeds">Evening Creeds</option>
+                              <option value="dinar-creeds">Dinar Creeds</option>
 
                          </select>
                      </div>

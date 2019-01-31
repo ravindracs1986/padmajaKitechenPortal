@@ -3,17 +3,21 @@
 			<h3>Contact Us</h3>
 			<!-- <p class="quia">how to find us</p> -->
 
-			<div class="w3ls_map">
+			<!-- <div class="w3ls_map">
 			<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3662.3374083882736!2d85.3219146145535!3d23.3760080847752!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f4e1109d28b6b7%3A0xb7917a7d429894b3!2sTown+Hall!5e0!3m2!1sen!2sin!4v1484504712375" style="border:0"></iframe>
 				
+			</div> -->
+			<div class="mapouter w3ls_map">
+			<div class="gmap_canvas"><iframe width="1100" height="300" id="gmap_canvas" src="https://maps.google.com/maps?q=B-09-10%2Cdomain%204%2Ccyberjaya%20%2Cmalaysia&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a href="https://www.embedgooglemap.net">embedgooglemap.net</a></div><style>.mapouter{text-align:right;height:300px;width:1100px;}.gmap_canvas {overflow:hidden;background:none!important;height:300px;width:1100px;}</style>
 			</div>
+			
 			<div class="col-md-4 wthree_contact_left">
 				<h4>Address</h4>
-				<p>Town Hall,Ahirtoli, Ranchi
-					<span>Jharkhand 834001,INDIA</span></p>
+				<p>B-09-10,Domain 4 ,Cyberjaya
+					<span>Malaysia, 63000</span></p>
 				<ul>
-					<li><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span> Phone :+ (91)9972792068</li>
-					<li><span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span> Fax :+ (91)9972792068</li>
+					<li><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span> Phone :+ (60)3-86895514</li>
+					<li><span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span> Fax :+ (60)3-86895514</li>
 					<li><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span><a href="mailto:info@smsaware.in">info@padmajakitchen.com</a></li>
 				</ul>
 			</div>
