@@ -21,15 +21,14 @@
                                 <c:forEach var="img" items="${popularImageList}">
 								    <%-- <img src="data:image/png;base64, ${img}"/> --%>
 								    <div class="single-wid-product">
-                                    <a href="single-product.jsp"><img src="data:image/png;base64, ${img.imageString}" alt="" class="product-thumb"></a>
-                                    <h2><a href="single-product.jsp">${img.blogName}</a></h2>
+                                    <a href="#"><img src="data:image/png;base64, ${img.imageString}" alt="" class="product-thumb"></a>
+                                    <h2 style="color: #5a5555;">${img.blogName}</h2>
                                     <div class="product-wid-rating">
-                                        <span class="meta-part"><i
-									class="ti-calendar"></i><a href="#"> ${img.crtDate}</a></span>
+                                        <span class="meta-part" style="color: #5a5555;"><i class="ti-calendar"></i>${img.crtDate}</span>
                                     </div>
                                     <div class="product-wid-price">
-                                        <a href="${pageContext.request.contextPath}/detail?id=${img.id}" class="view-details-link" target="_blank"><i
-												class="fa fa-link"></i> See details</a>
+                                        <a href="${pageContext.request.contextPath}/detail?id=${img.id}" style="background-color: lightgrey;" class="view-details-link" target="_blank"><i
+												class="fa fa-link" "></i> See details</a>
                                     </div>
                                 </div>
 							</c:forEach>
@@ -42,14 +41,13 @@
                                 <c:forEach var="recentlyimg" items="${recentlyImageList}">
 								    <%-- <img src="data:image/png;base64, ${img}"/> --%>
 								    <div class="single-wid-product">
-                                    <a href="single-product.jsp"><img src="data:image/png;base64, ${recentlyimg.imageString}" alt="" class="product-thumb"></a>
-                                    <h2><a href="single-product.jsp">${recentlyimg.blogName}</a></h2>
+                                    <a href="#"><img src="data:image/png;base64, ${recentlyimg.imageString}" alt="" class="product-thumb"></a>
+                                    <h2 style="color: #5a5555;">${recentlyimg.blogName}</h2>
                                     <div class="product-wid-rating">
-                                        <span class="meta-part"><i
-									class="ti-calendar"></i><a href="#"> ${recentlyimg.crtDate}</a></span>
+                                        <span class="meta-part" style="color: #5a5555;"><i class="ti-calendar"></i> ${recentlyimg.crtDate}</span>
                                     </div>
                                     <div class="product-wid-price">
-                                        <a href="${pageContext.request.contextPath}/detail?id=${recentlyimg.id}" class="view-details-link" target="_blank"><i
+                                        <a href="${pageContext.request.contextPath}/detail?id=${recentlyimg.id}" style="background-color: lightgrey;" class="view-details-link" target="_blank"><i
 												class="fa fa-link"></i> See details</a>
                                     </div>
                                 </div>
@@ -63,14 +61,13 @@
                                 <c:forEach var="newimg" items="${newImageList}">
 								    <%-- <img src="data:image/png;base64, ${img}"/> --%>
 								    <div class="single-wid-product">
-                                    <a href="single-product.jsp"><img src="data:image/png;base64, ${newimg.imageString}" alt="" class="product-thumb"></a>
-                                    <h2><a href="single-product.jsp">${newimg.blogName}</a></h2>
+                                    <a href="#"><img src="data:image/png;base64, ${newimg.imageString}" alt="" class="product-thumb"></a>
+                                    <h2 style="color: #5a5555;">${newimg.blogName}</h2>
                                     <div class="product-wid-rating">
-                                        <span class="meta-part"><i
-									class="ti-calendar"></i><a href="#"> ${newimg.crtDate}</a></span>
+                                        <span class="meta-part" style="color: #5a5555;"><i class="ti-calendar"></i> ${newimg.crtDate}</span>
                                     </div>
                                     <div class="product-wid-price">
-                                        <a href="${pageContext.request.contextPath}/detail?id=${newimg.id}" class="view-details-link" target="_blank"><i
+                                        <a href="${pageContext.request.contextPath}/detail?id=${newimg.id}" style="background-color: lightgrey;" class="view-details-link" target="_blank"><i
 												class="fa fa-link"></i> See details</a>
                                     </div>
                                 </div>

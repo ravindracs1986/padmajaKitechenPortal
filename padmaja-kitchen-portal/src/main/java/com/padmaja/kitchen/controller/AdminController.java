@@ -98,7 +98,7 @@ public class AdminController {
 
 	
 	@RequestMapping(value="/saveVideo", method = RequestMethod.POST)
-	public String getMultiUploadPage(ModelMap model,HttpServletRequest request, HttpServletResponse response) {
+	public String getMultiUploadPage(@Valid FileBucket fileBucket,ModelMap model,HttpServletRequest request, HttpServletResponse response) {
 		logger.info("Saving videos");
 		
 		String category = request.getParameter("category");
