@@ -23,8 +23,8 @@
                                     <img src="data:image/png;base64, ${img.imageString}" alt="" class="product-thumb">
                                 </div>
                                 <div class="job-list-content">
-                                    <h4>We need a web designer</h4>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum quaerat aut veniam molestiae atque dolorum omnis temporibus consequuntur saepe. Nemo atque consectetur saepe corporis odit in dicta reprehenderit, officiis, praesentium?</p>
+                                    <h4>${img.title}</h4>
+                                    <p>${img.description}</p>
                                     <div class="job-tag">
                                         <div class="pull-left">
                                             <div class="meta-tag">
@@ -63,16 +63,15 @@
                                     <div class="inner-box">
                                         <h3>Categories</h3>
                                         <ul class="cat-list">
-                                            <li><a href="#">BreakFast Creeds <span class="num-posts">(4,287)
+                                            <li><a href="#">BreakFast Creeds <span class="num-posts">(${breakCount})
 										</span></a></li>
-                                            <li><a href="#">Launch Creeds <span class="num-posts">(4,256)
+                                            <li><a href="#">Launch Creeds <span class="num-posts">(${launchCount})
 										</span></a></li>
-                                            <li><a href="#">Morning Creeds<span class="num-posts">(4,256)
+                                            <li><a href="#">Morning Creeds<span class="num-posts">(${morningCount})
 										</span></a></li>
-                                            <li><a href="#">Evening Creeds <span class="num-posts">(4,256)
+                                            <li><a href="#">Evening Creeds <span class="num-posts">(${eveningCount})
 										</span></a></li>
-                                            <li><a href="#">Dinar Creeds <span
-									class="num-posts">(4,256)</span></a></li>
+                                            <li><a href="#">Dinar Creeds <span class="num-posts">(${dinarCount})</span></a></li>
                                             
                                         </ul>
                                     </div>

@@ -25,15 +25,21 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.padmaja.kitchen.model.BlogDetailsDto;
 import com.padmaja.kitchen.model.FileBucket;
 import com.padmaja.kitchen.persist.entity.BlogDetails;
-import com.padmaja.kitchen.persist.entity.VideoDetails;
 import com.padmaja.kitchen.service.BlogDetailsService;
 import com.padmaja.kitchen.util.DateUtil;
 
 @Controller
 @MultipartConfig(maxFileSize = 16177215)
 public class BlogDetailsController {
+	private static final String IMAGE_DETAIL_LIST = "imageDetailList";
+	private static final String BREAK_COUNT = "breakCount";
+	private static final String LAUNCH_COUNT = "launchCount";
+	private static final String DINAR_COUNT = "dinarCount";
+	private static final String MORNING_COUNT = "morningCount";
+	private static final String EVENING_COUNT = "eveningCount";
+	private static final String EMPTY_STRING = "";
 	protected Logger logger = LoggerFactory.getLogger(this.getClass());
-	/*@Autowired private DozerBeanMapper mapper;*/
+	
 	@Autowired BlogDetailsService blogDetailsService;
 	@Autowired private MessageSource ms;
 	
@@ -45,30 +51,30 @@ public class BlogDetailsController {
 		if(id!=null){
 			BlogDetails detailsFromDb =blogDetailsService.getById(Long.valueOf(id));
 			//details =mapper.map(detailsFromDb, BlogDetailsDto.class);
-			details.setTitle(detailsFromDb.getTitle() != null ? detailsFromDb.getTitle() : "");
-			details.setBlogName(detailsFromDb.getBlogName() != null ? detailsFromDb.getBlogName() : "");
-			details.setCategory(detailsFromDb.getCategory() != null ? detailsFromDb.getCategory() : "");
+			details.setTitle(detailsFromDb.getTitle() != null ? detailsFromDb.getTitle() : EMPTY_STRING);
+			details.setBlogName(detailsFromDb.getBlogName() != null ? detailsFromDb.getBlogName() : EMPTY_STRING);
+			details.setCategory(detailsFromDb.getCategory() != null ? detailsFromDb.getCategory() : EMPTY_STRING);
 			//details.setCrtDate(detailsFromDb.getCrtTs() != null ? detailsFromDb.getCrtTs() : "");
-			details.setDescription(detailsFromDb.getDescription() != null ? detailsFromDb.getDescription() : "");
-			details.setImageOneUrl(detailsFromDb.getImageOneUrl() != null ? detailsFromDb.getImageOneUrl() : "");
-			details.setImageTwoUrl(detailsFromDb.getImageTwoUrl() != null ? detailsFromDb.getImageTwoUrl() : "");
+			details.setDescription(detailsFromDb.getDescription() != null ? detailsFromDb.getDescription() : EMPTY_STRING);
+			details.setImageOneUrl(detailsFromDb.getImageOneUrl() != null ? detailsFromDb.getImageOneUrl() : EMPTY_STRING);
+			details.setImageTwoUrl(detailsFromDb.getImageTwoUrl() != null ? detailsFromDb.getImageTwoUrl() : EMPTY_STRING);
 			
-			details.setParagraphOne(detailsFromDb.getParagraphOne() != null ? detailsFromDb.getParagraphOne() : "");
-			details.setParagraphTwo(detailsFromDb.getParagraphTwo() != null ? detailsFromDb.getParagraphTwo() : "");
-			details.setParagraphThree(detailsFromDb.getParagraphThree() != null ? detailsFromDb.getParagraphThree() : "");
-			details.setParagraphFour(detailsFromDb.getParagraphFour() != null ? detailsFromDb.getParagraphFour() : "");
-			details.setParagraphFive(detailsFromDb.getParagraphFive() != null ? detailsFromDb.getParagraphFive() : "");
-			details.setParagraphSix(detailsFromDb.getParagraphSix() != null ? detailsFromDb.getParagraphSix() : "");
-			details.setIngredientsDetails(detailsFromDb.getIngredientsDetails() != null ? detailsFromDb.getIngredientsDetails() : "");
-			details.setInstructionsDetails(detailsFromDb.getInstructionsDetails() != null ? detailsFromDb.getInstructionsDetails() : "");
-			details.setNotes(detailsFromDb.getNotes() != null ? detailsFromDb.getNotes() : "");
-			details.setRecipeCardInsideTitle(detailsFromDb.getRecipeCardInsideTitle() != null ? detailsFromDb.getRecipeCardInsideTitle() : "");
-			details.setRecipeCardTitle(detailsFromDb.getRecipeCardTitle() != null ? detailsFromDb.getRecipeCardTitle() : "");
-			details.setYouTubeVideoTitle(detailsFromDb.getYouTubeVideoTitle() != null ? detailsFromDb.getYouTubeVideoTitle() : "");
-			details.setYouTubeVideoUrl(detailsFromDb.getYouTubeVideoUrl() != null ? detailsFromDb.getYouTubeVideoUrl() : "");
+			details.setParagraphOne(detailsFromDb.getParagraphOne() != null ? detailsFromDb.getParagraphOne() : EMPTY_STRING);
+			details.setParagraphTwo(detailsFromDb.getParagraphTwo() != null ? detailsFromDb.getParagraphTwo() : EMPTY_STRING);
+			details.setParagraphThree(detailsFromDb.getParagraphThree() != null ? detailsFromDb.getParagraphThree() : EMPTY_STRING);
+			details.setParagraphFour(detailsFromDb.getParagraphFour() != null ? detailsFromDb.getParagraphFour() : EMPTY_STRING);
+			details.setParagraphFive(detailsFromDb.getParagraphFive() != null ? detailsFromDb.getParagraphFive() : EMPTY_STRING);
+			details.setParagraphSix(detailsFromDb.getParagraphSix() != null ? detailsFromDb.getParagraphSix() : EMPTY_STRING);
+			details.setIngredientsDetails(detailsFromDb.getIngredientsDetails() != null ? detailsFromDb.getIngredientsDetails() : EMPTY_STRING);
+			details.setInstructionsDetails(detailsFromDb.getInstructionsDetails() != null ? detailsFromDb.getInstructionsDetails() : EMPTY_STRING);
+			details.setNotes(detailsFromDb.getNotes() != null ? detailsFromDb.getNotes() : EMPTY_STRING);
+			details.setRecipeCardInsideTitle(detailsFromDb.getRecipeCardInsideTitle() != null ? detailsFromDb.getRecipeCardInsideTitle() : EMPTY_STRING);
+			details.setRecipeCardTitle(detailsFromDb.getRecipeCardTitle() != null ? detailsFromDb.getRecipeCardTitle() : EMPTY_STRING);
+			details.setYouTubeVideoTitle(detailsFromDb.getYouTubeVideoTitle() != null ? detailsFromDb.getYouTubeVideoTitle() : EMPTY_STRING);
+			details.setYouTubeVideoUrl(detailsFromDb.getYouTubeVideoUrl() != null ? detailsFromDb.getYouTubeVideoUrl() : EMPTY_STRING);
 			
 			details.setLaunchCount(getlaunchCount(request,response));
-			details.setMorningCount(geteveningCount(request,response));
+			details.setMorningCount(getmorningCount(request, response));
 			details.setEveningCount(geteveningCount(request,response));
 			details.setDinarCount(getdinarCreedsCount(request,response));
 			details.setBrekFastCount(getbreakCount(request,response));
@@ -89,7 +95,10 @@ public class BlogDetailsController {
 			for (BlogDetails blogDetails : blogDetailsList) {
 				BlogDetailsDto dto= new BlogDetailsDto();
 				dto.setBlogName(blogDetails.getBlogName());
-				dto.setCrtDate(""+blogDetails.getCrtTs());
+				dto.setTitle(blogDetails.getTitle());
+				dto.setCategory(blogDetails.getCategory());
+				dto.setDescription(blogDetails.getDescription());
+				dto.setCrtDate(EMPTY_STRING+blogDetails.getCrtTs());
 				dto.setId(blogDetails.getId());
 				try {
 					dto.setImageString(new String(Base64.encodeBase64(blogDetails.getBlogImage()), "UTF-8"));
@@ -99,14 +108,16 @@ public class BlogDetailsController {
 				}
 				imageDetailList.add(dto);
 			}
-			System.out.println("getting from session recentImageList");
-			model.addAttribute("imageDetailList", imageDetailList);
+			
 		}else if(id!=null && id.equalsIgnoreCase("recently")){
 			List<BlogDetails> blogDetailsList =blogDetailsService.findAll();
 			for (BlogDetails blogDetails : blogDetailsList) {
 				BlogDetailsDto dto= new BlogDetailsDto();
 				dto.setBlogName(blogDetails.getBlogName());
-				dto.setCrtDate(""+blogDetails.getCrtTs());
+				dto.setTitle(blogDetails.getTitle());
+				dto.setCategory(blogDetails.getCategory());
+				dto.setDescription(blogDetails.getDescription());
+				dto.setCrtDate(EMPTY_STRING+blogDetails.getCrtTs());
 				dto.setId(blogDetails.getId());
 				try {
 					dto.setImageString(new String(Base64.encodeBase64(blogDetails.getBlogImage()), "UTF-8"));
@@ -116,15 +127,17 @@ public class BlogDetailsController {
 				}
 				imageDetailList.add(dto);
 			}
-			System.out.println("getting from session recentImageList");
-			model.addAttribute("imageDetailList", imageDetailList);
+			
 		}else{
 			//new
 			List<BlogDetails> blogDetailsList =blogDetailsService.findAll();
 			for (BlogDetails blogDetails : blogDetailsList) {
 				BlogDetailsDto dto= new BlogDetailsDto();
 				dto.setBlogName(blogDetails.getBlogName());
-				dto.setCrtDate(""+blogDetails.getCrtTs());
+				dto.setTitle(blogDetails.getTitle());
+				dto.setCategory(blogDetails.getCategory());
+				dto.setDescription(blogDetails.getDescription());
+				dto.setCrtDate(EMPTY_STRING+blogDetails.getCrtTs());
 				dto.setId(blogDetails.getId());
 				try {
 					dto.setImageString(new String(Base64.encodeBase64(blogDetails.getBlogImage()), "UTF-8"));
@@ -134,11 +147,15 @@ public class BlogDetailsController {
 				}
 				imageDetailList.add(dto);
 			}
-			System.out.println("getting from session recentImageList");
-			model.addAttribute("imageDetailList", imageDetailList);
+		
 			
 		}
-		
+		model.addAttribute(EVENING_COUNT, geteveningCount(request,response));
+		model.addAttribute(MORNING_COUNT, getmorningCount(request,response));
+		model.addAttribute(DINAR_COUNT, getdinarCreedsCount(request,response));
+		model.addAttribute(LAUNCH_COUNT, getlaunchCount(request,response));
+		model.addAttribute(BREAK_COUNT, getbreakCount(request,response));
+		model.addAttribute(IMAGE_DETAIL_LIST, imageDetailList);
 		
 		return "blogDetailsList";
 	}
@@ -210,6 +227,7 @@ public class BlogDetailsController {
 	 * @return
 	 */
 	
+	@SuppressWarnings("unchecked")
 	@RequestMapping(value="/breakFast-creeds", method = RequestMethod.GET)
 	public String getBreakFastCreeds(ModelMap model,HttpServletRequest request, HttpServletResponse response) {
 		FileBucket fileModel = new FileBucket();
@@ -217,23 +235,23 @@ public class BlogDetailsController {
 		model.addAttribute("fileBucket", fileModel);
 		logger.info("getBreakFastCreeds get method call");
 		HttpSession session = request.getSession();
-		 imageList = (List<BlogDetailsDto>) session.getAttribute("breakFastCreedsList");
-		
+		imageList = (List<BlogDetailsDto>) session.getAttribute("breakFastCreedsList");
 		List<BlogDetailsDto> imageDetailList= new ArrayList<BlogDetailsDto>();
 		if(imageList!=null && imageList.size()>0){
-			
 			for (BlogDetailsDto dto : imageList) {
-				
 				imageDetailList.add(dto);
 			}
 			System.out.println("getting from session recentImageList");
-			model.addAttribute("imageDetailList", imageDetailList);
+			
 		}else{
 			List<BlogDetails> blogDetailsList =blogDetailsService.getByCategory("breakFast-creeds");
 			for (BlogDetails blogDetails : blogDetailsList) {
 				BlogDetailsDto dto= new BlogDetailsDto();
 				dto.setBlogName(blogDetails.getBlogName());
-				dto.setCrtDate(""+blogDetails.getCrtTs());
+				dto.setTitle(blogDetails.getTitle());
+				dto.setCategory(blogDetails.getCategory());
+				dto.setDescription(blogDetails.getDescription());
+				dto.setCrtDate(EMPTY_STRING+blogDetails.getCrtTs());
 				dto.setId(blogDetails.getId());
 				try {
 					dto.setImageString(new String(Base64.encodeBase64(blogDetails.getBlogImage()), "UTF-8"));
@@ -244,10 +262,15 @@ public class BlogDetailsController {
 				imageDetailList.add(dto);
 			}
 			session.setAttribute("breakFastCreedsList", imageDetailList);
-			model.addAttribute("imageDetailList", imageDetailList);
+			
 			
 		}
-		
+		model.addAttribute(EVENING_COUNT, geteveningCount(request,response));
+		model.addAttribute(MORNING_COUNT, getmorningCount(request,response));
+		model.addAttribute(DINAR_COUNT, getdinarCreedsCount(request,response));
+		model.addAttribute(LAUNCH_COUNT, getlaunchCount(request,response));
+		model.addAttribute(BREAK_COUNT, getbreakCount(request,response));
+		model.addAttribute(IMAGE_DETAIL_LIST, imageDetailList);
 		
 		return "blogDetailsList";
 	}
@@ -255,6 +278,7 @@ public class BlogDetailsController {
 	/**
 	 * launch-creeds
 	 */
+	@SuppressWarnings("unchecked")
 	@RequestMapping(value="/launch-creeds", method = RequestMethod.GET)
 	public String getlaunchCreeds(ModelMap model,HttpServletRequest request, HttpServletResponse response) {
 		FileBucket fileModel = new FileBucket();
@@ -262,23 +286,23 @@ public class BlogDetailsController {
 		model.addAttribute("fileBucket", fileModel);
 		logger.info("getlaunchCreeds get method call");
 		HttpSession session = request.getSession();
-		 imageList = (List<BlogDetailsDto>) session.getAttribute("launchCreedsList");
-		
+		imageList = (List<BlogDetailsDto>) session.getAttribute("launchCreedsList");
 		List<BlogDetailsDto> imageDetailList= new ArrayList<BlogDetailsDto>();
 		if(imageList!=null && imageList.size()>0){
-			
 			for (BlogDetailsDto dto : imageList) {
-				
 				imageDetailList.add(dto);
 			}
-			System.out.println("getting from session recentImageList");
-			model.addAttribute("imageDetailList", imageDetailList);
+			System.out.println("getting from session getlaunchCreeds");
+			
 		}else{
 			List<BlogDetails> blogDetailsList =blogDetailsService.getByCategory("launch-creeds");
 			for (BlogDetails blogDetails : blogDetailsList) {
 				BlogDetailsDto dto= new BlogDetailsDto();
 				dto.setBlogName(blogDetails.getBlogName());
-				dto.setCrtDate(""+blogDetails.getCrtTs());
+				dto.setTitle(blogDetails.getTitle());
+				dto.setCategory(blogDetails.getCategory());
+				dto.setDescription(blogDetails.getDescription());
+				dto.setCrtDate(EMPTY_STRING+blogDetails.getCrtTs());
 				dto.setId(blogDetails.getId());
 				try {
 					dto.setImageString(new String(Base64.encodeBase64(blogDetails.getBlogImage()), "UTF-8"));
@@ -289,10 +313,15 @@ public class BlogDetailsController {
 				imageDetailList.add(dto);
 			}
 			session.setAttribute("launchCreedsList", imageDetailList);
-			model.addAttribute("imageDetailList", imageDetailList);
+			
 			
 		}
-		
+		model.addAttribute(EVENING_COUNT, geteveningCount(request,response));
+		model.addAttribute(MORNING_COUNT, getmorningCount(request,response));
+		model.addAttribute(DINAR_COUNT, getdinarCreedsCount(request,response));
+		model.addAttribute(LAUNCH_COUNT, getlaunchCount(request,response));
+		model.addAttribute(BREAK_COUNT, getbreakCount(request,response));
+		model.addAttribute(IMAGE_DETAIL_LIST, imageDetailList);
 		
 		return "blogDetailsList";
 	}
@@ -300,6 +329,7 @@ public class BlogDetailsController {
 	/**
 	 * morning-creeds
 	 */
+	@SuppressWarnings("unchecked")
 	@RequestMapping(value="/morning-creeds", method = RequestMethod.GET)
 	public String getmorningCreeds(ModelMap model,HttpServletRequest request, HttpServletResponse response) {
 		FileBucket fileModel = new FileBucket();
@@ -307,23 +337,23 @@ public class BlogDetailsController {
 		model.addAttribute("fileBucket", fileModel);
 		logger.info("getmorningCreeds get method call");
 		HttpSession session = request.getSession();
-		 imageList = (List<BlogDetailsDto>) session.getAttribute("morningCreedsList");
-		
+		imageList = (List<BlogDetailsDto>) session.getAttribute("morningCreedsList");
 		List<BlogDetailsDto> imageDetailList= new ArrayList<BlogDetailsDto>();
 		if(imageList!=null && imageList.size()>0){
-			
 			for (BlogDetailsDto dto : imageList) {
-				
 				imageDetailList.add(dto);
 			}
-			System.out.println("getting from session recentImageList");
-			model.addAttribute("imageDetailList", imageDetailList);
+			System.out.println("getting from session getmorningCreeds");
+			
 		}else{
 			List<BlogDetails> blogDetailsList =blogDetailsService.getByCategory("morning-creeds");
 			for (BlogDetails blogDetails : blogDetailsList) {
 				BlogDetailsDto dto= new BlogDetailsDto();
 				dto.setBlogName(blogDetails.getBlogName());
-				dto.setCrtDate(""+blogDetails.getCrtTs());
+				dto.setTitle(blogDetails.getTitle());
+				dto.setCategory(blogDetails.getCategory());
+				dto.setDescription(blogDetails.getDescription());
+				dto.setCrtDate(EMPTY_STRING+blogDetails.getCrtTs());
 				dto.setId(blogDetails.getId());
 				try {
 					dto.setImageString(new String(Base64.encodeBase64(blogDetails.getBlogImage()), "UTF-8"));
@@ -334,10 +364,15 @@ public class BlogDetailsController {
 				imageDetailList.add(dto);
 			}
 			session.setAttribute("morningCreedsList", imageDetailList);
-			model.addAttribute("imageDetailList", imageDetailList);
+			
 			
 		}
-		
+		model.addAttribute(EVENING_COUNT, geteveningCount(request,response));
+		model.addAttribute(MORNING_COUNT, getmorningCount(request,response));
+		model.addAttribute(DINAR_COUNT, getdinarCreedsCount(request,response));
+		model.addAttribute(LAUNCH_COUNT, getlaunchCount(request,response));
+		model.addAttribute(BREAK_COUNT, getbreakCount(request,response));
+		model.addAttribute(IMAGE_DETAIL_LIST, imageDetailList);
 		
 		return "blogDetailsList";
 	}
@@ -345,6 +380,7 @@ public class BlogDetailsController {
 	/**
 	 * evening-creeds
 	 */
+	@SuppressWarnings("unchecked")
 	@RequestMapping(value="/evening-creeds", method = RequestMethod.GET)
 	public String geteveningCreeds(ModelMap model,HttpServletRequest request, HttpServletResponse response) {
 		FileBucket fileModel = new FileBucket();
@@ -352,23 +388,23 @@ public class BlogDetailsController {
 		model.addAttribute("fileBucket", fileModel);
 		logger.info("geteveningCreeds get method call");
 		HttpSession session = request.getSession();
-		 imageList = (List<BlogDetailsDto>) session.getAttribute("eveningCreedsList");
-		
+		imageList = (List<BlogDetailsDto>) session.getAttribute("eveningCreedsList");
 		List<BlogDetailsDto> imageDetailList= new ArrayList<BlogDetailsDto>();
 		if(imageList!=null && imageList.size()>0){
-			
 			for (BlogDetailsDto dto : imageList) {
-				
 				imageDetailList.add(dto);
 			}
-			System.out.println("getting from session recentImageList");
-			model.addAttribute("imageDetailList", imageDetailList);
+			System.out.println("getting from session geteveningCreeds");
+			
 		}else{
 			List<BlogDetails> blogDetailsList =blogDetailsService.getByCategory("evening-creeds");
 			for (BlogDetails blogDetails : blogDetailsList) {
 				BlogDetailsDto dto= new BlogDetailsDto();
 				dto.setBlogName(blogDetails.getBlogName());
-				dto.setCrtDate(""+blogDetails.getCrtTs());
+				dto.setTitle(blogDetails.getTitle());
+				dto.setCategory(blogDetails.getCategory());
+				dto.setDescription(blogDetails.getDescription());
+				dto.setCrtDate(EMPTY_STRING+blogDetails.getCrtTs());
 				dto.setId(blogDetails.getId());
 				try {
 					dto.setImageString(new String(Base64.encodeBase64(blogDetails.getBlogImage()), "UTF-8"));
@@ -379,10 +415,15 @@ public class BlogDetailsController {
 				imageDetailList.add(dto);
 			}
 			session.setAttribute("eveningCreedsList", imageDetailList);
-			model.addAttribute("imageDetailList", imageDetailList);
+			
 			
 		}
-		
+		model.addAttribute(EVENING_COUNT, geteveningCount(request,response));
+		model.addAttribute(MORNING_COUNT, getmorningCount(request,response));
+		model.addAttribute(DINAR_COUNT, getdinarCreedsCount(request,response));
+		model.addAttribute(LAUNCH_COUNT, getlaunchCount(request,response));
+		model.addAttribute(BREAK_COUNT, getbreakCount(request,response));
+		model.addAttribute(IMAGE_DETAIL_LIST, imageDetailList);
 		
 		return "blogDetailsList";
 	}
@@ -390,6 +431,7 @@ public class BlogDetailsController {
 	/**
 	 * dinar-creeds
 	 */
+	@SuppressWarnings("unchecked")
 	@RequestMapping(value="/dinar-creeds", method = RequestMethod.GET)
 	public String getdinarCreeds(ModelMap model,HttpServletRequest request, HttpServletResponse response) {
 		FileBucket fileModel = new FileBucket();
@@ -397,23 +439,22 @@ public class BlogDetailsController {
 		model.addAttribute("fileBucket", fileModel);
 		logger.info("getdinarCreeds get method call");
 		HttpSession session = request.getSession();
-		 imageList = (List<BlogDetailsDto>) session.getAttribute("dinarCreedsList");
-		
+		imageList = (List<BlogDetailsDto>) session.getAttribute("dinarCreedsList");
 		List<BlogDetailsDto> imageDetailList= new ArrayList<BlogDetailsDto>();
 		if(imageList!=null && imageList.size()>0){
-			
 			for (BlogDetailsDto dto : imageList) {
-				
 				imageDetailList.add(dto);
 			}
-			System.out.println("getting from session recentImageList");
-			model.addAttribute("imageDetailList", imageDetailList);
+			System.out.println("getting from session getdinarCreeds");
 		}else{
 			List<BlogDetails> blogDetailsList =blogDetailsService.getByCategory("dinar-creeds");
 			for (BlogDetails blogDetails : blogDetailsList) {
 				BlogDetailsDto dto= new BlogDetailsDto();
 				dto.setBlogName(blogDetails.getBlogName());
-				dto.setCrtDate(""+blogDetails.getCrtTs());
+				dto.setTitle(blogDetails.getTitle());
+				dto.setCategory(blogDetails.getCategory());
+				dto.setDescription(blogDetails.getDescription());
+				dto.setCrtDate(EMPTY_STRING+blogDetails.getCrtTs());
 				dto.setId(blogDetails.getId());
 				try {
 					dto.setImageString(new String(Base64.encodeBase64(blogDetails.getBlogImage()), "UTF-8"));
@@ -424,10 +465,15 @@ public class BlogDetailsController {
 				imageDetailList.add(dto);
 			}
 			session.setAttribute("dinarCreedsList", imageDetailList);
-			model.addAttribute("imageDetailList", imageDetailList);
+			
 			
 		}
-		
+		model.addAttribute(EVENING_COUNT, geteveningCount(request,response));
+		model.addAttribute(MORNING_COUNT, getmorningCount(request,response));
+		model.addAttribute(DINAR_COUNT, getdinarCreedsCount(request,response));
+		model.addAttribute(LAUNCH_COUNT, getlaunchCount(request,response));
+		model.addAttribute(BREAK_COUNT, getbreakCount(request,response));
+		model.addAttribute(IMAGE_DETAIL_LIST, imageDetailList);
 		
 		return "blogDetailsList";
 	}
