@@ -51,7 +51,7 @@ a {
 }
 a:hover,
 a:focus {
-  color: #ff4f57;
+  color: #5a88ca;
 }
 img {
   max-width: 100%;
@@ -76,7 +76,7 @@ a:focus {
   text-align: center;
 }
 ::selection {
-  background: #ff4f57;
+  background: #5a88ca;
   color: #fff;
 }
 ::-moz-selection {
@@ -98,7 +98,7 @@ a:focus {
 .btn-common:hover,
 .btn-common:focus {
   color: #fff;
-  background: #ea4249;
+  background: #444;
   box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.12), 0 1px 6px 0 rgba(0, 0, 0, 0.12);
 }
 .btn-search-icon:hover {

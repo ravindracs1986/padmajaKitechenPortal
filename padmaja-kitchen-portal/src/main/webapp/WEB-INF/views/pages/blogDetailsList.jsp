@@ -7,18 +7,58 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
  <!-- Custom CSS -->
 	  <link rel="stylesheet" href="assets/css/main.css">
+<style>
+ 
+   #myTable {
+    border-collapse: separate;
+    border-spacing: 0 1em;
+
+ }
+</style>
 </head>
 <body>
 <!-- End main content area -->
 	
-	<!-- End mainmenu area -->
+	<!-- <div class="container">
+<div class="row header" style="text-align:center;color:green">
+<h3>Bootstrap</h3>
+</div> -->
+
+	  
+	
+<!-- End mainmenu area -->
 			 <section class="job-browse section">
                 <div class="container">
                     <div class="row">
-						<div class="col-md-9 col-sm-8">
-						<c:forEach var="img" items="${imageDetailList}">
+						<div class="col-md-9 col-sm-8" >
+						<table id="myTable" class="table table-striped" >
+							<thead>  
+						          <tr>  
+						            <th></th>  
+						            <th></th>  
+						            <th></th>  
+						            <th></th>
+						            <h4>Records are below</h4>  
+						          </tr>  
+						        </thead>
+						        <c:forEach var="img" items="${imageDetailList}">
+								<tbody> 
+									<tr>
+										  <td><div class="thumb"><img src="data:image/png;base64, ${img.imageString}" alt="" class="product-thumb"></div></td>  
+								          <td><h4>${img.title}</h4></td>  
+								          <td><p>${img.description}</p></td>  
+								          <td><a href="${pageContext.request.contextPath}/detail?id=${img.id}" class="btn btn-common btn-rm"" target="_blank"><i
+												class="fa fa-link"></i> See details</a></td>
+									 </tr>
+							     </tbody>
+							    
+						     </c:forEach> 
+						   </table>
 						
-                            <div class="job-list">
+						   
+							<%-- <c:forEach var="img" items="${imageDetailList}"> --%>
+						
+							<%-- <div class="job-list">
                                 <div class="thumb">
                                     <img src="data:image/png;base64, ${img.imageString}" alt="" class="product-thumb">
                                 </div>
@@ -40,12 +80,11 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            
-                           </c:forEach>
-                            
-
-                            <ul class="pagination">
+                            </div> --%>
+                          
+                          <%--  </c:forEach> --%>
+                           
+                         <!--  <ul class="pagination">
                                 <li class="active"><a href="#" class="btn btn-common"><i class="ti-angle-left"></i> prev</a></li>
                                 <li><a href="#">1</a></li>
                                 <li><a href="#">2</a></li>
@@ -53,7 +92,7 @@
                                 <li><a href="#">4</a></li>
                                 <li><a href="#">5</a></li>
                                 <li class="active"><a href="#" class="btn btn-common">Next<i class="ti-angle-right"></i></a></li>
-                            </ul>
+                            </ul> -->
 
                         </div>
                         
@@ -85,4 +124,16 @@
 
             <!-- End main content area -->
 	</body>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			
+			$('#myTable').DataTable( {
+		        "ordering": false,
+		        "info":     false,
+		        "searching": false,
+		        "lengthChange": false
+		    } );
+		   
+		});
+		</script>
 </html>
