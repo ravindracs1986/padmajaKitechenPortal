@@ -40,7 +40,7 @@
 									</div>
 
 									<h2>
-										<a href="single-product.jsp">${product.videoName}</a>
+										${product.videoName}
 									</h2>
 								</div>
 							</c:forEach>

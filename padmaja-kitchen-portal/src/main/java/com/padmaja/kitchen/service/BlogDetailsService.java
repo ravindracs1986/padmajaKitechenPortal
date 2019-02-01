@@ -39,5 +39,10 @@ public class BlogDetailsService extends com.padmaja.kitchen.core.AbstractService
 		List<BlogDetails> blogDetails= blogDetailsRepo.getByCategory(category);
 		return blogDetails;
 	}
+	
+	@Transactional(readOnly=false,rollbackFor=Exception.class)
+	public Integer getByCategoryCount(String category){
+		return blogDetailsRepo.getByCategoryCount(category);
+	}
 
 }

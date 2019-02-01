@@ -55,7 +55,7 @@
 									</div>
 
 									<h2>
-										<a href="single-product.jsp">${product.videoName}</a>
+										${product.videoName}
 									</h2>
 								</div>
 							</c:forEach>
@@ -92,7 +92,7 @@
 												class="fa fa-link"></i> See details</a>
 										</div>
 									</div>
-									<h2><a href="single-product.jsp">${product.videoName}</a></h2>
+									<h2>${product.videoName}</h2>
 								</div>
 							</c:forEach>
 							</div>

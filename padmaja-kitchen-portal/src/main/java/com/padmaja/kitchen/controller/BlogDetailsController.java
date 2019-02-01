@@ -45,7 +45,33 @@ public class BlogDetailsController {
 		if(id!=null){
 			BlogDetails detailsFromDb =blogDetailsService.getById(Long.valueOf(id));
 			//details =mapper.map(detailsFromDb, BlogDetailsDto.class);
-			details.setTitle(detailsFromDb.getTitle());
+			details.setTitle(detailsFromDb.getTitle() != null ? detailsFromDb.getTitle() : "");
+			details.setBlogName(detailsFromDb.getBlogName() != null ? detailsFromDb.getBlogName() : "");
+			details.setCategory(detailsFromDb.getCategory() != null ? detailsFromDb.getCategory() : "");
+			//details.setCrtDate(detailsFromDb.getCrtTs() != null ? detailsFromDb.getCrtTs() : "");
+			details.setDescription(detailsFromDb.getDescription() != null ? detailsFromDb.getDescription() : "");
+			details.setImageOneUrl(detailsFromDb.getImageOneUrl() != null ? detailsFromDb.getImageOneUrl() : "");
+			details.setImageTwoUrl(detailsFromDb.getImageTwoUrl() != null ? detailsFromDb.getImageTwoUrl() : "");
+			
+			details.setParagraphOne(detailsFromDb.getParagraphOne() != null ? detailsFromDb.getParagraphOne() : "");
+			details.setParagraphTwo(detailsFromDb.getParagraphTwo() != null ? detailsFromDb.getParagraphTwo() : "");
+			details.setParagraphThree(detailsFromDb.getParagraphThree() != null ? detailsFromDb.getParagraphThree() : "");
+			details.setParagraphFour(detailsFromDb.getParagraphFour() != null ? detailsFromDb.getParagraphFour() : "");
+			details.setParagraphFive(detailsFromDb.getParagraphFive() != null ? detailsFromDb.getParagraphFive() : "");
+			details.setParagraphSix(detailsFromDb.getParagraphSix() != null ? detailsFromDb.getParagraphSix() : "");
+			details.setIngredientsDetails(detailsFromDb.getIngredientsDetails() != null ? detailsFromDb.getIngredientsDetails() : "");
+			details.setInstructionsDetails(detailsFromDb.getInstructionsDetails() != null ? detailsFromDb.getInstructionsDetails() : "");
+			details.setNotes(detailsFromDb.getNotes() != null ? detailsFromDb.getNotes() : "");
+			details.setRecipeCardInsideTitle(detailsFromDb.getRecipeCardInsideTitle() != null ? detailsFromDb.getRecipeCardInsideTitle() : "");
+			details.setRecipeCardTitle(detailsFromDb.getRecipeCardTitle() != null ? detailsFromDb.getRecipeCardTitle() : "");
+			details.setYouTubeVideoTitle(detailsFromDb.getYouTubeVideoTitle() != null ? detailsFromDb.getYouTubeVideoTitle() : "");
+			details.setYouTubeVideoUrl(detailsFromDb.getYouTubeVideoUrl() != null ? detailsFromDb.getYouTubeVideoUrl() : "");
+			
+			details.setLaunchCount(getlaunchCount(request,response));
+			details.setMorningCount(geteveningCount(request,response));
+			details.setEveningCount(geteveningCount(request,response));
+			details.setDinarCount(getdinarCreedsCount(request,response));
+			details.setBrekFastCount(getbreakCount(request,response));
 			model.addAttribute("details", details);
 		}
 		
@@ -405,4 +431,60 @@ public class BlogDetailsController {
 		
 		return "blogDetailsList";
 	}
+	
+	/**
+	 * dinar-creeds
+	 */
+	@RequestMapping(value="/dinarCount", method = RequestMethod.GET)
+	public Integer getdinarCreedsCount(HttpServletRequest request, HttpServletResponse response) {
+		Integer count=0;
+		count =blogDetailsService.getByCategoryCount("dinar-creeds");
+		return count;
+		
+	}
+	/**
+	 * breakCount
+	 */
+	@RequestMapping(value="/breakCount", method = RequestMethod.GET)
+	public Integer getbreakCount(HttpServletRequest request, HttpServletResponse response) {
+		Integer count=0;
+		count =blogDetailsService.getByCategoryCount("breakFast-creeds");
+		
+		return count;
+		
+	}
+	/**
+	 * launchCount
+	 */
+	@RequestMapping(value="/launchCount", method = RequestMethod.GET)
+	public Integer getlaunchCount(HttpServletRequest request, HttpServletResponse response) {
+		Integer count=0;
+		
+		count =blogDetailsService.getByCategoryCount("launch-creeds");
+		return count;
+		
+	}
+	/**
+	 * eveningCount
+	 */
+	@RequestMapping(value="/eveningCount", method = RequestMethod.GET)
+	public Integer geteveningCount(HttpServletRequest request, HttpServletResponse response) {
+		Integer count=0;
+		
+		count =blogDetailsService.getByCategoryCount("evening-creeds");
+		return count;
+		
+	}
+	/**
+	 * morningCount
+	 */
+	@RequestMapping(value="/morningCount", method = RequestMethod.GET)
+	public Integer getmorningCount(HttpServletRequest request, HttpServletResponse response) {
+		Integer count=0;
+		count =blogDetailsService.getByCategoryCount("morning-creeds");
+		
+		return count;
+		
+	}
+	
 }

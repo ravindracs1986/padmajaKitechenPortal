@@ -51,6 +51,12 @@ public class BlogDetailsDto implements java.io.Serializable {
 	private String crtDate;
 	private String imageString;
 	private String description;
+	
+	private Integer brekFastCount;
+	private Integer launchCount;
+	private Integer morningCount;
+	private Integer eveningCount;
+	private Integer dinarCount;
 
 	public String getTitle() {
 		return title;
@@ -242,6 +248,46 @@ public class BlogDetailsDto implements java.io.Serializable {
 
 	public void setDescription(String description) {
 		this.description = description;
+	}
+
+	public Integer getBrekFastCount() {
+		return brekFastCount;
+	}
+
+	public void setBrekFastCount(Integer brekFastCount) {
+		this.brekFastCount = brekFastCount;
+	}
+
+	public Integer getLaunchCount() {
+		return launchCount;
+	}
+
+	public void setLaunchCount(Integer launchCount) {
+		this.launchCount = launchCount;
+	}
+
+	public Integer getMorningCount() {
+		return morningCount;
+	}
+
+	public void setMorningCount(Integer morningCount) {
+		this.morningCount = morningCount;
+	}
+
+	public Integer getEveningCount() {
+		return eveningCount;
+	}
+
+	public void setEveningCount(Integer eveningCount) {
+		this.eveningCount = eveningCount;
+	}
+
+	public Integer getDinarCount() {
+		return dinarCount;
+	}
+
+	public void setDinarCount(Integer dinarCount) {
+		this.dinarCount = dinarCount;
 	}
 	
 

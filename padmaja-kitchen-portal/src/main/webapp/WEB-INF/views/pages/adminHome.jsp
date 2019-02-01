@@ -94,15 +94,7 @@
                          <textarea name="paragraphTwo" name="paragraphTwo" class="form-control" id="paragraphTwo" placeholder="ParagraphTwo"></textarea>
                      </div>
                  </div>
-                 
-                 <div class="form-row">
-                     <div class="form-group col-md-6">
-                         <label for="imageOneUrl">ImageOneUrl</label>
-                         <input type="text" name="imageOneUrl" class="form-control" id="imageOneUrl" placeholder="ImageOneUrl">
-                     </div>
-                  </div>
-                 
-                 <div class="form-row">
+                  <div class="form-row">
                      <div class="form-group col-md-6">
                          <label for="paragraphThree">ParagraphThree</label>
                          <textarea name="paragraphThree" class="form-control" id="paragraphThree" placeholder="ParagraphThree"></textarea>
@@ -112,21 +104,30 @@
                          <textarea name="paragraphFour" name="paragraphFour" class="form-control" id="paragraphFour" placeholder="ParagraphFour"></textarea>
                      </div>
                  </div>
-                 
                  <div class="form-row">
-                     <div class="form-group col-md-6">
-                         <label for="imageTwoUrl">ImageTwoUrl</label>
-                         <input type="text" name="imageTwoUrl" class="form-control" id="imageTwoUrl" placeholder="ImageTwoUrl">
+                 <div class="form-group col-md-6">
+                         <label for="paragraphFive">ParagraphFive</label>
+                         <textarea name="paragraphFive" class="form-control" id="paragraphFive" placeholder="ParagraphFive"></textarea>
                      </div>
-                  </div>
-                 <div class="form-row">
                      <div class="form-group col-md-6">
                          <label for="paragraphSix">ParagraphSix</label>
                          <textarea name="paragraphSix" class="form-control" id="paragraphSix" placeholder="ParagraphSix"></textarea>
                      </div>
                   </div>
-                 
-                   <div class="form-row">
+                 	<div class="form-row">
+                     <div class="form-group col-md-6">
+                         <label for="imageOneUrl">ImageOneUrl</label>
+                         <input type="text" name="imageOneUrl" class="form-control" id="imageOneUrl" placeholder="ImageOneUrl">
+                     </div>
+                  </div>
+                 <div class="form-row">
+                     <div class="form-group col-md-6">
+                         <label for="imageTwoUrl">ImageTwoUrl</label>
+                         <input type="text" name="imageTwoUrl" class="form-control" id="imageTwoUrl" placeholder="ImageTwoUrl">
+                     </div>
+                     
+                  </div>
+                 <div class="form-row">
                      <div class="form-group col-md-6">
                          <label for="youTubeVideoTitle">YouTubeVideoTitle</label>
                          <input type="text" name="youTubeVideoTitle" class="form-control" id="youTubeVideoTitle" placeholder="youTubeVideoTitle">

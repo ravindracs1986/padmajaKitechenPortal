@@ -32,5 +32,8 @@ public interface BlogDetailsRepo extends GenericRepository<BlogDetails> {
 	
 	@Query("select detail from BlogDetails detail where detail.category = :category")
 	public List<BlogDetails> getByCategory(@Param("category") String category);
+	
+	@Query("select count(*) from BlogDetails detail where detail.category = :category")
+	public Integer getByCategoryCount(@Param("category") String category);
 
 }
