@@ -23,9 +23,6 @@
 <div class="row header" style="text-align:center;color:green">
 <h3>Bootstrap</h3>
 </div> -->
-
-	  
-	
 <!-- End mainmenu area -->
 			 <section class="job-browse section">
                 <div class="container">
@@ -33,18 +30,18 @@
 						<div class="col-md-9 col-sm-8" >
 						<table id="myTable" class="table table-striped" >
 							<thead>  
-						          <tr>  
-						            <th></th>  
-						            <th></th>  
-						            <th></th>  
-						            <th></th>
+						          <tr bgcolor="#C0C0C0">  
+						            <th>Thumbnail</th>  
+						            <th>Name</th>  
+						            <th>Description</th>  
+						            <th>Action</th>
 						            <h4>Records are below</h4>  
 						          </tr>  
 						        </thead>
 						        <c:forEach var="img" items="${imageDetailList}">
 								<tbody> 
 									<tr>
-										  <td><div class="thumb"><img src="data:image/png;base64, ${img.imageString}" alt="" class="product-thumb"></div></td>  
+										  <td width="12%"><div class="thumb"><img src="data:image/png;base64, ${img.imageString}" alt="" class="product-thumb"></div></td>  
 								          <td><h4>${img.title}</h4></td>  
 								          <td><p>${img.description}</p></td>  
 								          <td><a href="${pageContext.request.contextPath}/detail?id=${img.id}" class="btn btn-common btn-rm"" target="_blank"><i

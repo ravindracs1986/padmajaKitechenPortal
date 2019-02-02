@@ -20,7 +20,7 @@
                                     <div class="meta">
                                         <span class="meta-part"><a href="#"><i
 										class="ti-user"></i> By Admin</a></span> <span class="meta-part"><i
-									class="ti-calendar"></i><a href="#"> 20.02.2018</a></span> <span class="meta-part"><a href="#"><i
+									class="ti-calendar"></i>${details.crtDate}</span> <span class="meta-part"><a href="#"><i
 										class="ti-comment-alt"></i></a></span>
                                     </div>
                                     <br/>

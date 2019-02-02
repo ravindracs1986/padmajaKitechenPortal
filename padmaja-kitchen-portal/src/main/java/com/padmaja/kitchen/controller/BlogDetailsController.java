@@ -3,6 +3,7 @@ package com.padmaja.kitchen.controller;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.annotation.MultipartConfig;
@@ -54,7 +55,12 @@ public class BlogDetailsController {
 			details.setTitle(detailsFromDb.getTitle() != null ? detailsFromDb.getTitle() : EMPTY_STRING);
 			details.setBlogName(detailsFromDb.getBlogName() != null ? detailsFromDb.getBlogName() : EMPTY_STRING);
 			details.setCategory(detailsFromDb.getCategory() != null ? detailsFromDb.getCategory() : EMPTY_STRING);
-			//details.setCrtDate(detailsFromDb.getCrtTs() != null ? detailsFromDb.getCrtTs() : "");
+			if(detailsFromDb.getCrtTs()!=null){
+				//Date date=DateUtil.convertTimestampToDate(detailsFromDb.getCrtTs());
+				details.setCrtDate(""+detailsFromDb.getCrtTs());
+			}
+			
+			
 			details.setDescription(detailsFromDb.getDescription() != null ? detailsFromDb.getDescription() : EMPTY_STRING);
 			details.setImageOneUrl(detailsFromDb.getImageOneUrl() != null ? detailsFromDb.getImageOneUrl() : EMPTY_STRING);
 			details.setImageTwoUrl(detailsFromDb.getImageTwoUrl() != null ? detailsFromDb.getImageTwoUrl() : EMPTY_STRING);
