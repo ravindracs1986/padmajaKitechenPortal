@@ -9,7 +9,10 @@
                     <p><b>"Simple and tasty recipe"</b>,I am cooking & exploring different cuisins &
 trying to share with you all my experiences & recipes.You can get all recipe images and  steps of recipe prepartion which tends to personal blogs of  Padmaja kitchen</p>
                     <div class="footer-social">
-                        <a href="#" target="_blank"><i class="fa fa-facebook"></i></a> <a href="#" target="_blank"><i class="fa fa-twitter"></i></a> <a href="#" target="_blank"><i class="fa fa-youtube"></i></a> <a href="#" target="_blank"><i class="fa fa-linkedin"></i></a>
+                        <a href="https://www.facebook.com/Padmaja-Kitchen-226348641588830/" target="_blank"><i class="fa fa-facebook"></i></a> 
+                        <!-- <a href="#" target="_blank"><i class="fa fa-twitter"></i></a>  -->
+                        <a href="https://www.youtube.com/channel/UCaE_Pj2CT3oP09Tb-Fq79OA" target="_blank"><i class="fa fa-youtube"></i></a> 
+                       <!--  <a href="#" target="_blank"><i class="fa fa-linkedin"></i></a> -->
                     </div>
                 </div>
             </div>
