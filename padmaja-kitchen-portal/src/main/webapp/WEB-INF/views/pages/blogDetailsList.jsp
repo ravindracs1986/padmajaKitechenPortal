@@ -111,7 +111,7 @@
                                             <li><a href="#">Evening Creeds <span class="num-posts">(${eveningCount})
 										</span></a></li>
                                             <li><a href="#">Dinar Creeds <span class="num-posts">(${dinarCount})</span></a></li>
-                                            
+                                            <li><a href="#">Sweets Creeds <span class="num-posts">(${sweetsCount})</span></a></li>
                                         </ul>
                                     </div>
                                    

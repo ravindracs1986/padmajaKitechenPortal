@@ -57,6 +57,7 @@ public class BlogDetailsDto implements java.io.Serializable {
 	private Integer morningCount;
 	private Integer eveningCount;
 	private Integer dinarCount;
+	private Integer sweetsCount;
 
 	public String getTitle() {
 		return title;
@@ -288,6 +289,14 @@ public class BlogDetailsDto implements java.io.Serializable {
 
 	public void setDinarCount(Integer dinarCount) {
 		this.dinarCount = dinarCount;
+	}
+
+	public Integer getSweetsCount() {
+		return sweetsCount;
+	}
+
+	public void setSweetsCount(Integer sweetsCount) {
+		this.sweetsCount = sweetsCount;
 	}
 	
 

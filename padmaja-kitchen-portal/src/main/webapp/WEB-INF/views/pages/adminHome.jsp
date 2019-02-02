@@ -200,7 +200,7 @@
                              <option value="morning-creeds">Morning Creeds</option>
                               <option value="evening-creeds">Evening Creeds</option>
                               <option value="dinar-creeds">Dinar Creeds</option>
-
+							 <option value="sweets-creeds">Sweets Creeds</option>
                          </select>
                      </div>
                      

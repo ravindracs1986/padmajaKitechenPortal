@@ -34,6 +34,7 @@
                         <li><a href="${pageContext.request.contextPath}/morning-creeds">Morning Creeds</a></li>
                         <li><a href="${pageContext.request.contextPath}/evening-creeds">Evening Creeds</a></li>
                         <li><a href="${pageContext.request.contextPath}/dinar-creeds">Dinar Creeds</a></li>
+                        <li><a href="${pageContext.request.contextPath}/sweets-creeds">Sweets Creeds</a></li>
                     </ul>
                 </div>
             </div>

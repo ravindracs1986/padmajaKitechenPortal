@@ -78,6 +78,7 @@ public class BlogDetailsController {
 			details.setEveningCount(geteveningCount(request,response));
 			details.setDinarCount(getdinarCreedsCount(request,response));
 			details.setBrekFastCount(getbreakCount(request,response));
+			details.setSweetsCount(getSweetsCount(request, response));
 			model.addAttribute("details", details);
 		}
 		
@@ -184,6 +185,7 @@ public class BlogDetailsController {
 		String instructionsDetails = request.getParameter("instructionsDetails");
 		String notes = request.getParameter("notes");
 		String category = request.getParameter("category");
+		String description = request.getParameter("description");
 		
 		try {
 			byte[] blogImage =fileBucket.getFile().getBytes();
@@ -209,6 +211,7 @@ public class BlogDetailsController {
 			blogDetails.setInstructionsDetails(instructionsDetails);
 			blogDetails.setNotes(notes);
 			blogDetails.setCategory(category);
+			blogDetails.setDescription(description);
 			blogDetails.setCrtTs(DateUtil.getSQLTimestamp());
 			blogDetailsService.create(blogDetails);
 			
@@ -481,6 +484,58 @@ public class BlogDetailsController {
 	/**
 	 * dinar-creeds
 	 */
+	@SuppressWarnings("unchecked")
+	@RequestMapping(value="/sweets-creeds", method = RequestMethod.GET)
+	public String getSweetsCreeds(ModelMap model,HttpServletRequest request, HttpServletResponse response) {
+		FileBucket fileModel = new FileBucket();
+		List<BlogDetailsDto> imageList =null;
+		model.addAttribute("fileBucket", fileModel);
+		logger.info("getSweetsCreeds get method call");
+		HttpSession session = request.getSession();
+		imageList = (List<BlogDetailsDto>) session.getAttribute("sweetsCreedsList");
+		List<BlogDetailsDto> imageDetailList= new ArrayList<BlogDetailsDto>();
+		if(imageList!=null && imageList.size()>0){
+			for (BlogDetailsDto dto : imageList) {
+				imageDetailList.add(dto);
+			}
+			System.out.println("getting from session getSweetsCreeds");
+		}else{
+			List<BlogDetails> blogDetailsList =blogDetailsService.getByCategory("sweets-creeds");
+			for (BlogDetails blogDetails : blogDetailsList) {
+				BlogDetailsDto dto= new BlogDetailsDto();
+				dto.setBlogName(blogDetails.getBlogName());
+				dto.setTitle(blogDetails.getTitle());
+				dto.setCategory(blogDetails.getCategory());
+				dto.setDescription(blogDetails.getDescription());
+				dto.setCrtDate(EMPTY_STRING+blogDetails.getCrtTs());
+				dto.setId(blogDetails.getId());
+				try {
+					dto.setImageString(new String(Base64.encodeBase64(blogDetails.getBlogImage()), "UTF-8"));
+				} catch (UnsupportedEncodingException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				imageDetailList.add(dto);
+			}
+			session.setAttribute("sweetsCreedsList", imageDetailList);
+			
+			
+		}
+		model.addAttribute(EVENING_COUNT, geteveningCount(request,response));
+		model.addAttribute(MORNING_COUNT, getmorningCount(request,response));
+		model.addAttribute(DINAR_COUNT, getdinarCreedsCount(request,response));
+		model.addAttribute(LAUNCH_COUNT, getlaunchCount(request,response));
+		model.addAttribute(BREAK_COUNT, getbreakCount(request,response));
+		model.addAttribute(IMAGE_DETAIL_LIST, imageDetailList);
+		
+		return "blogDetailsList";
+	}
+	
+	
+	
+	/**
+	 * dinar-creeds
+	 */
 	@RequestMapping(value="/dinarCount", method = RequestMethod.GET)
 	public Integer getdinarCreedsCount(HttpServletRequest request, HttpServletResponse response) {
 		Integer count=0;
@@ -528,6 +583,18 @@ public class BlogDetailsController {
 	public Integer getmorningCount(HttpServletRequest request, HttpServletResponse response) {
 		Integer count=0;
 		count =blogDetailsService.getByCategoryCount("morning-creeds");
+		
+		return count;
+		
+	}
+	
+	/**
+	 * morningCount
+	 */
+	@RequestMapping(value="/sweetsCount", method = RequestMethod.GET)
+	public Integer getSweetsCount(HttpServletRequest request, HttpServletResponse response) {
+		Integer count=0;
+		count =blogDetailsService.getByCategoryCount("sweets-creeds");
 		
 		return count;
 		

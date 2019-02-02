@@ -266,7 +266,7 @@ public class AppController {
 	@RequestMapping(value = { "/getPopularimage"}, method = RequestMethod.GET)
 	public List<BlogDetailsDto> getPopularimage() {
 		List<BlogDetailsDto> topImageList= new ArrayList<BlogDetailsDto>();
-		List<BlogDetails> blogDetailsList =blogDetailsService.findAll();
+		List<BlogDetails> blogDetailsList =blogDetailsService.getByLimit();
 		for (BlogDetails blogDetails : blogDetailsList) {
 			BlogDetailsDto dto= new BlogDetailsDto();
 			dto.setBlogName(blogDetails.getBlogName());
@@ -288,7 +288,7 @@ public class AppController {
 	@RequestMapping(value = { "/getRecentlyimage"}, method = RequestMethod.GET)
 	public List<BlogDetailsDto> getRecentlyimage() {
 		List<BlogDetailsDto> topImageList= new ArrayList<BlogDetailsDto>();
-		List<BlogDetails> blogDetailsList =blogDetailsService.findAll();
+		List<BlogDetails> blogDetailsList =blogDetailsService.getByLimit();
 		for (BlogDetails blogDetails : blogDetailsList) {
 			BlogDetailsDto dto= new BlogDetailsDto();
 			dto.setBlogName(blogDetails.getBlogName());
@@ -310,7 +310,7 @@ public class AppController {
 	@RequestMapping(value = { "/getNewimage"}, method = RequestMethod.GET)
 	public List<BlogDetailsDto> getNewimage() {
 		List<BlogDetailsDto> topImageList= new ArrayList<BlogDetailsDto>();
-		List<BlogDetails> blogDetailsList =blogDetailsService.findAll();
+		List<BlogDetails> blogDetailsList =blogDetailsService.getByLimit();
 		for (BlogDetails blogDetails : blogDetailsList) {
 			BlogDetailsDto dto= new BlogDetailsDto();
 			dto.setBlogName(blogDetails.getBlogName());

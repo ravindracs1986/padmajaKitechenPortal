@@ -25,11 +25,11 @@
                                     </div>
                                     <br/>
                                     <p><b>${details.title}recipe</b>${details.paragraphOne}</p>
-                                    <img src="http://padmajakitchen.com/images/thumbnailarbi.png" alt="">
+                                    <img src="${details.imageOneUrl}" alt="">
                                     <p>${details.paragraphTwo}</p>
                                     <p>,${details.paragraphThree}</p>
 
-                                    <img src="http://padmajakitchen.com/images/arbi2.png" alt="">
+                                    <img src="${details.imageTwoUrl}" alt="">
                                     <p>${details.paragraphFour}</p>
                                     <h3><b>${details.youTubeVideoTitle}:</b></h3>
                                     <iframe width="670" height="315" src="${details.youTubeVideoUrl}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -81,7 +81,7 @@
                                             <li><a href="#">Evening Creeds <span class="num-posts">(${details.eveningCount})
 										</span></a></li>
                                             <li><a href="#">Dinar Creeds <span class="num-posts">(${details.dinarCount})</span></a></li>
-                                            
+                                             <li><a href="#">Sweets Creeds <span class="num-posts">(${details.sweetsCount})</span></a></li>
                                         </ul>
                                     </div>
                                    

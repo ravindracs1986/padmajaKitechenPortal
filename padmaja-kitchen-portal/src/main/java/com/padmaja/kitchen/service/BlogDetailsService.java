@@ -23,6 +23,7 @@ public class BlogDetailsService extends com.padmaja.kitchen.core.AbstractService
 
 	
 	@Autowired BlogDetailsRepo blogDetailsRepo;
+	@Autowired CustomBlogDetailsService customBlogDetailsService;
 	@Override
 	public GenericRepository<BlogDetails> primaryDao() {
 		return blogDetailsRepo;
@@ -43,6 +44,12 @@ public class BlogDetailsService extends com.padmaja.kitchen.core.AbstractService
 	@Transactional(readOnly=false,rollbackFor=Exception.class)
 	public Integer getByCategoryCount(String category){
 		return blogDetailsRepo.getByCategoryCount(category);
+	}
+	
+	@Transactional(readOnly=false,rollbackFor=Exception.class)
+	public List<BlogDetails> getByLimit(){
+		List<BlogDetails> blogDetails= customBlogDetailsService.getByLimit();
+		return blogDetails;
 	}
 
 }
