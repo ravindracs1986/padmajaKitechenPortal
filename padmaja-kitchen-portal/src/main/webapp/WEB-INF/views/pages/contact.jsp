@@ -23,18 +23,17 @@
 			</div>
 			<div class="col-md-8 wthree_contact_left">
 				<h4>Contact Form</h4>
-				<h5><div class="message" id="message" style="color:#DC143C"></div></h5>
-				<form name="contactForm" method="post" action="contactUs.do" id="contact-form" class="contactClass" onsubmit="return(regvalidate())">
+				<form name="contactForm" method="post" action="${pageContext.request.contextPath}/contactUs" id="contact-form" class="contactClass">
 					<div class="col-md-6 wthree_contact_left_grid">
-						<input type="text" name="Name" id="name" class="name" placeholder="Name*" />
-						<input type="email" name="Email" id="email" class="email" placeholder="Email*" />
+						<input type="text" name="name" id="name" class="name" placeholder="Name*" />
+						<input type="email" name="email" id="email" class="email" placeholder="Email*" />
 					</div>
 					<div class="col-md-6 wthree_contact_left_grid">
-						<input type="text" name="Telephone" id="Telephone" class="Telephone" placeholder="Telephone*" >
-						<input type="text" name="Subject" id="Subject" class="Subject" placeholder="Subject*" >
+						<input type="text" name="phone" id="phone" class="Telephone" placeholder="Telephone*" >
+						<input type="text" name="subject" id="subject" class="Subject" placeholder="Subject*" >
 					</div>
 					<div class="clearfix"> </div>
-					<textarea  name="Message" id="Message" class="Message" placeholder="Message*"></textarea>
+					<textarea  name="message" id="message" class="Message" placeholder="Message*"></textarea>
 					<input type="submit" value="Submit">
 					<input type="reset" value="Clear">
 				</form>

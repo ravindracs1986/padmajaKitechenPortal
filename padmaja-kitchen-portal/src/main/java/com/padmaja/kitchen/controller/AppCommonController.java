@@ -55,6 +55,38 @@ public class AppCommonController {
 		return mav;
 	}
 
+	@RequestMapping(value = {"/contactUs"}, method = RequestMethod.GET)
+	public ModelAndView getContactUs(ModelMap model,HttpServletRequest request, HttpServletResponse response) {
+		return new ModelAndView("redirect:" + "contact");
+		
+	}
 	
+	@RequestMapping(value = {"/contactUs"}, method = RequestMethod.POST)
+	public ModelAndView contactUs(ModelMap model,HttpServletRequest request, HttpServletResponse response) {
+		
+		ModelAndView mav =new ModelAndView("popup");
+		String name = request.getParameter("name");
+		String subEmail = request.getParameter("email");
+		String phone = request.getParameter("phone");
+		String subject = request.getParameter("subject");
+		String message = request.getParameter("message");
+		if(name!=null && !StringUtils.isEmpty(name) && subEmail!=null && !StringUtils.isEmpty(subEmail) && phone!=null && !StringUtils.isEmpty(phone)
+				&& subject!=null && !StringUtils.isEmpty(subject)&& message!=null && !StringUtils.isEmpty(message)){
+			SubsorContacts subsorContacts = new SubsorContacts();
+			subsorContacts.setSubEmail(subEmail);
+			subsorContacts.setName(name);
+			subsorContacts.setPhone(phone);
+			subsorContacts.setEmail(subEmail);
+			subsorContacts.setSubject(subject);
+			subsorContacts.setMessage(message);
+			subsorContacts.setCrtTs(DateUtil.getSQLTimestamp());
+			suborContactService.create(subsorContacts);
+			mav.addAllObjects(PopupBox.success(null, null,"Contact Form Submitted Successfully","contact"));
+			
+		}else{
+			mav.addAllObjects(PopupBox.error(null, null,"Contact Form Submittion Fail, Please try again","contact"));
+		}
+		return mav;
+	}
 	
 }

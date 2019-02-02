@@ -61,7 +61,7 @@
         <div class="row">
             <div class="col-md-8">
                 <div class="copyright">
-                    <p>&copy; Padmaja Kitchen. All Rights Reserved. <a href="http://www.padmajakitchen.com" target="_blank">padmajakitchen.com</a></p>
+                    <p>© Copyright 2019 Padmaja Kitchen. All Rights Reserved. <a href="http://www.padmajakitchen.com" target="_blank">padmajakitchen.com</a></p>
                 </div>
             </div>
 

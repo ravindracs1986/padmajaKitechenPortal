@@ -24,8 +24,11 @@ import com.padmaja.kitchen.persist.entity.VideoDetails;
 @Qualifier("suborContactRepo")
 public interface SuborContactRepo extends GenericRepository<SubsorContacts> {
 
-	@Query("select detail from BlogDetails detail where detail.id = :id")
-	public BlogDetails findbyId(@Param("id") Long id);
+	@Query("select detail from SubsorContacts detail where detail.id = :id")
+	public SubsorContacts findbyId(@Param("id") Long id);
+	
+	@Query("select subsorContacts from SubsorContacts subsorContacts where subsorContacts.subEmail = :subEmail")
+	public List<SubsorContacts> getSubsorContacts(@Param("subEmail") String subEmail);
 	
 	/*@Modifying
 	@Query("update UserProfile u set u.status =:status WHERE u.email = :email")

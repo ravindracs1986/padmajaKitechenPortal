@@ -30,6 +30,10 @@ public class SuborContactService extends com.padmaja.kitchen.core.AbstractServic
 		return suborContactRepo;
 	}
 	
-	
+	@Transactional(readOnly=false,rollbackFor=Exception.class)
+	public List<SubsorContacts> getSubsorContacts(String email){
+		List<SubsorContacts> usr= suborContactRepo.getSubsorContacts(email);
+		return usr;
+	}
 
 }
