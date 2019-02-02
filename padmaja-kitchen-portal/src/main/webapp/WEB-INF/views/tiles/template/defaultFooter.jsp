@@ -43,9 +43,10 @@
                     <h2 class="footer-wid-title">Subscription</h2>
                     <p>for subscription please provide us your email id and enjoy our you tube video!</p>
                     <div class="newsletter-form">
-                        <form action="#">
-                            <input type="email" placeholder="Type your email">
-                            <input type="submit" value="Subscribe">
+                        <form method="post" action="${pageContext.request.contextPath}/subscription">
+                            <input type="email" name="email" id="email" placeholder="Type your email">
+                            <!-- <input type="submit" value="Subscribe"> -->
+                            <input type="submit" value="Subscribe" name="Subscribe"/>
                         </form>
                     </div>
                 </div>
