@@ -57,6 +57,14 @@ public class VideoDetails extends AbstractEntity implements java.io.Serializable
 	@Column(name = "youtube_id", nullable = false)
 	private String youtubeId;
 
+	@Column(name = "view", nullable = false)
+	private Integer view;
+
+	@Column(name = "like", nullable = false)
+	private Integer like;
+	
+	
+	
 	@Column(name = "CRT_TS", nullable = false, length = 50)
 	private Timestamp crtTs;
 
@@ -98,6 +106,23 @@ public class VideoDetails extends AbstractEntity implements java.io.Serializable
 
 	public void setYoutubeId(String youtubeId) {
 		this.youtubeId = youtubeId;
+	}
+
+	
+	public Integer getView() {
+		return view;
+	}
+
+	public void setView(Integer view) {
+		this.view = view;
+	}
+
+	public Integer getLike() {
+		return like;
+	}
+
+	public void setLike(Integer like) {
+		this.like = like;
 	}
 
 	@Override

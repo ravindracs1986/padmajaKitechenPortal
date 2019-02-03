@@ -35,19 +35,32 @@ public class AppController {
 	@RequestMapping(value = {"/","/home"}, method = RequestMethod.GET)
 	public String homePage(ModelMap model,HttpServletRequest request, HttpServletResponse response) {
 		HttpSession session = request.getSession();
-		List<VideoDetails> videoListFromSession = (List<VideoDetails>) session.getAttribute("videoList");
+		List<VideoDetails> latestVideoListFromSession = (List<VideoDetails>) session.getAttribute("videoList");
+		List<VideoDetails> topVideoListFromSession = (List<VideoDetails>) session.getAttribute("topvideoList");
 		List<BlogDetailsDto> blogDetailsDtoFromSession = (List<BlogDetailsDto>) session.getAttribute("popularImageList");
 		List<BlogDetailsDto> recentFromSession = (List<BlogDetailsDto>) session.getAttribute("recentlyImageList");
 		List<BlogDetailsDto> newFromSession = (List<BlogDetailsDto>) session.getAttribute("newImageList");
-		if (videoListFromSession != null) {
+		if (latestVideoListFromSession != null) {
 			System.out.println("getting from session&&&&&&&");
-			request.setAttribute("videoList", videoListFromSession);
+			request.setAttribute("videoList", latestVideoListFromSession);
 		} else {
 			System.out.println("getting from database@@@@@@@@@@@@");
-			List<VideoDetails> videoList = homeVideoService.findAll();
+			List<VideoDetails> videoList = homeVideoService.findLatestVideos();
 			session.setAttribute("videoList", videoList);
 			model.addAttribute("videoList", videoList);
 		}
+		//top video
+		if (topVideoListFromSession != null) {
+			System.out.println("getting from topvideoList &&&&&&&");
+			request.setAttribute("topvideoList", topVideoListFromSession);
+		} else {
+			System.out.println("getting from database@@@@@@@@@@@@");
+			List<VideoDetails> topvideoList = homeVideoService.findTopVideos();
+			session.setAttribute("topvideoList", topvideoList);
+			model.addAttribute("topvideoList", topvideoList);
+		}
+		
+		
 		if(blogDetailsDtoFromSession!=null){
 			System.out.println("getting from session popularImageList");
 			model.addAttribute("popularImageList", blogDetailsDtoFromSession);
@@ -266,7 +279,7 @@ public class AppController {
 	@RequestMapping(value = { "/getPopularimage"}, method = RequestMethod.GET)
 	public List<BlogDetailsDto> getPopularimage() {
 		List<BlogDetailsDto> topImageList= new ArrayList<BlogDetailsDto>();
-		List<BlogDetails> blogDetailsList =blogDetailsService.getByLimit();
+		List<BlogDetails> blogDetailsList =blogDetailsService.getPopularLimit();
 		for (BlogDetails blogDetails : blogDetailsList) {
 			BlogDetailsDto dto= new BlogDetailsDto();
 			dto.setBlogName(blogDetails.getBlogName());
@@ -288,7 +301,7 @@ public class AppController {
 	@RequestMapping(value = { "/getRecentlyimage"}, method = RequestMethod.GET)
 	public List<BlogDetailsDto> getRecentlyimage() {
 		List<BlogDetailsDto> topImageList= new ArrayList<BlogDetailsDto>();
-		List<BlogDetails> blogDetailsList =blogDetailsService.getByLimit();
+		List<BlogDetails> blogDetailsList =blogDetailsService.getRecentLimit();
 		for (BlogDetails blogDetails : blogDetailsList) {
 			BlogDetailsDto dto= new BlogDetailsDto();
 			dto.setBlogName(blogDetails.getBlogName());
@@ -310,7 +323,7 @@ public class AppController {
 	@RequestMapping(value = { "/getNewimage"}, method = RequestMethod.GET)
 	public List<BlogDetailsDto> getNewimage() {
 		List<BlogDetailsDto> topImageList= new ArrayList<BlogDetailsDto>();
-		List<BlogDetails> blogDetailsList =blogDetailsService.getByLimit();
+		List<BlogDetails> blogDetailsList =blogDetailsService.getNewLimit();
 		for (BlogDetails blogDetails : blogDetailsList) {
 			BlogDetailsDto dto= new BlogDetailsDto();
 			dto.setBlogName(blogDetails.getBlogName());

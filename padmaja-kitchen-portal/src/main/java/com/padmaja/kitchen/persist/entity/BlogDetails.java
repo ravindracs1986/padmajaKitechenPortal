@@ -118,6 +118,11 @@ public class BlogDetails extends AbstractEntity implements java.io.Serializable 
 	private String category;
 	@Column(name = "description", nullable = false)
 	private String description;
+	@Column(name = "view", nullable = false)
+	private Integer view;
+
+	@Column(name = "like", nullable = false)
+	private Integer like;
 
 	public String getTitle() {
 		return title;
@@ -303,5 +308,23 @@ public class BlogDetails extends AbstractEntity implements java.io.Serializable 
 		this.crtTs = crtTs;
 
 	}
+
+	public Integer getView() {
+		return view;
+	}
+
+	public void setView(Integer view) {
+		this.view = view;
+	}
+
+	public Integer getLike() {
+		return like;
+	}
+
+	public void setLike(Integer like) {
+		this.like = like;
+	}
+	
+	
 
 }

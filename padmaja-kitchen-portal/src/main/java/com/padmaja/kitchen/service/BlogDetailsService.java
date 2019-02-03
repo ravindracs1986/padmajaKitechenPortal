@@ -47,8 +47,18 @@ public class BlogDetailsService extends com.padmaja.kitchen.core.AbstractService
 	}
 	
 	@Transactional(readOnly=false,rollbackFor=Exception.class)
-	public List<BlogDetails> getByLimit(){
-		List<BlogDetails> blogDetails= customBlogDetailsService.getByLimit();
+	public List<BlogDetails> getPopularLimit(){
+		List<BlogDetails> blogDetails= customBlogDetailsService.getPopularLimit();
+		return blogDetails;
+	}
+	@Transactional(readOnly=false,rollbackFor=Exception.class)
+	public List<BlogDetails> getRecentLimit(){
+		List<BlogDetails> blogDetails= customBlogDetailsService.getRecentLimit();
+		return blogDetails;
+	}
+	@Transactional(readOnly=false,rollbackFor=Exception.class)
+	public List<BlogDetails> getNewLimit(){
+		List<BlogDetails> blogDetails= customBlogDetailsService.getNewLimit();
 		return blogDetails;
 	}
 
