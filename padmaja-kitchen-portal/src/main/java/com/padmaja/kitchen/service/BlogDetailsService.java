@@ -47,18 +47,36 @@ public class BlogDetailsService extends com.padmaja.kitchen.core.AbstractService
 	}
 	
 	@Transactional(readOnly=false,rollbackFor=Exception.class)
+	public List<BlogDetails> getPopularList(){
+		List<BlogDetails> blogDetails= customBlogDetailsService.getPopularLimit(null);
+		return blogDetails;
+	}
+	@Transactional(readOnly=false,rollbackFor=Exception.class)
+	public List<BlogDetails> getRecentList(){
+		List<BlogDetails> blogDetails= customBlogDetailsService.getRecentLimit(null);
+		return blogDetails;
+	}
+	@Transactional(readOnly=false,rollbackFor=Exception.class)
+	public List<BlogDetails> getNewList(){
+		List<BlogDetails> blogDetails= customBlogDetailsService.getNewLimit(null);
+		return blogDetails;
+	}
+	
+	
+	
+	@Transactional(readOnly=false,rollbackFor=Exception.class)
 	public List<BlogDetails> getPopularLimit(){
-		List<BlogDetails> blogDetails= customBlogDetailsService.getPopularLimit();
+		List<BlogDetails> blogDetails= customBlogDetailsService.getPopularLimit(3);
 		return blogDetails;
 	}
 	@Transactional(readOnly=false,rollbackFor=Exception.class)
 	public List<BlogDetails> getRecentLimit(){
-		List<BlogDetails> blogDetails= customBlogDetailsService.getRecentLimit();
+		List<BlogDetails> blogDetails= customBlogDetailsService.getRecentLimit(3);
 		return blogDetails;
 	}
 	@Transactional(readOnly=false,rollbackFor=Exception.class)
 	public List<BlogDetails> getNewLimit(){
-		List<BlogDetails> blogDetails= customBlogDetailsService.getNewLimit();
+		List<BlogDetails> blogDetails= customBlogDetailsService.getNewLimit(3);
 		return blogDetails;
 	}
 

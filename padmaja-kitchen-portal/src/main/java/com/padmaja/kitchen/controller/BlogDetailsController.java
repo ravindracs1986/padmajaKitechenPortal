@@ -98,7 +98,7 @@ public class BlogDetailsController {
 		logger.info("detailList get method call");
 		List<BlogDetailsDto> imageDetailList= new ArrayList<BlogDetailsDto>();
 		if(id!=null && id.equalsIgnoreCase("popular")){
-			List<BlogDetails> blogDetailsList =blogDetailsService.findAll();
+			List<BlogDetails> blogDetailsList =blogDetailsService.getPopularList();
 			for (BlogDetails blogDetails : blogDetailsList) {
 				BlogDetailsDto dto= new BlogDetailsDto();
 				dto.setBlogName(blogDetails.getBlogName());
@@ -117,7 +117,7 @@ public class BlogDetailsController {
 			}
 			
 		}else if(id!=null && id.equalsIgnoreCase("recently")){
-			List<BlogDetails> blogDetailsList =blogDetailsService.findAll();
+			List<BlogDetails> blogDetailsList =blogDetailsService.getRecentList();
 			for (BlogDetails blogDetails : blogDetailsList) {
 				BlogDetailsDto dto= new BlogDetailsDto();
 				dto.setBlogName(blogDetails.getBlogName());
@@ -137,7 +137,7 @@ public class BlogDetailsController {
 			
 		}else{
 			//new
-			List<BlogDetails> blogDetailsList =blogDetailsService.findAll();
+			List<BlogDetails> blogDetailsList =blogDetailsService.getNewList();
 			for (BlogDetails blogDetails : blogDetailsList) {
 				BlogDetailsDto dto= new BlogDetailsDto();
 				dto.setBlogName(blogDetails.getBlogName());

@@ -99,16 +99,16 @@
                                     <div class="inner-box">
                                         <h3>Categories</h3>
                                         <ul class="cat-list">
-                                            <li><a href="#">BreakFast Creeds <span class="num-posts">(${breakCount})
+                                            <li><a href="${pageContext.request.contextPath}/breakFast-creeds">BreakFast Creeds <span class="num-posts">(${breakCount})
 										</span></a></li>
-                                            <li><a href="#">Launch Creeds <span class="num-posts">(${launchCount})
+                                            <li><a href="${pageContext.request.contextPath}/launch-creeds">Launch Creeds <span class="num-posts">(${launchCount})
 										</span></a></li>
-                                            <li><a href="#">Morning Creeds<span class="num-posts">(${morningCount})
+                                            <li><a href="${pageContext.request.contextPath}/morning-creeds">Morning Creeds<span class="num-posts">(${morningCount})
 										</span></a></li>
-                                            <li><a href="#">Evening Creeds <span class="num-posts">(${eveningCount})
+                                            <li><a href="${pageContext.request.contextPath}/evening-creeds">Evening Creeds <span class="num-posts">(${eveningCount})
 										</span></a></li>
-                                            <li><a href="#">Dinar Creeds <span class="num-posts">(${dinarCount})</span></a></li>
-                                            <li><a href="#">Sweets Creeds <span class="num-posts">(${sweetsCount})</span></a></li>
+                                            <li><a href="${pageContext.request.contextPath}/dinar-creeds">Dinar Creeds <span class="num-posts">(${dinarCount})</span></a></li>
+                                            <li><a href="${pageContext.request.contextPath}/sweets-creeds">Sweets Creeds <span class="num-posts">(${sweetsCount})</span></a></li>
                                         </ul>
                                     </div>
                                    
