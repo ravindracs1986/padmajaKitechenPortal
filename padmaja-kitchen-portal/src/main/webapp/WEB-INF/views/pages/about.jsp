@@ -9,16 +9,6 @@
 				<!-- <img src="assets/img/h4-slide7.png" alt=" " class="img-responsive"/>
 				<img src="assets/img/h4-slide2.png" alt=" " class="img-responsive"/> -->
 				<img src="assets/img/aboutImage.png" alt=" " class="img-responsive"/>
-				
-					<!-- <div class="col-md-6 agile_about_grid_left1">
-					<img src="assets/img/newbanner.png" alt=" " class="img-responsive"/>
-						<img src="images/insta6.jpg" alt=" " class="img-responsive" />
-					</div>
-					<div class="col-md-6 agile_about_grid_left1">
-						<img src="images/insta1.jpg" alt=" " class="img-responsive" />
-					</div>
-					<div class="clearfix"> </div>
-					<img class="agile_about_grid_left_img img-responsive" src="images/banner.jpg" alt=" " /> -->
 				</div>
 				<div class="col-md-6 agile_about_grid_right">
 					<h4>Why we are different</h4>
@@ -36,9 +26,6 @@ I  focus on posting and creating recipe which are easy to prepare and can be pre
 					
 					</p>
 					
-					<%-- <div class="wthree_more wthree_more3">
-						<a href="learn-more.jsp" class="button--wayra button--border-thick button--text-upper button--size-s" onclick="goToURL('${url}'); return false;">Read More</a>
-					</div> --%>
 				</div>
 				<div class="clearfix"> </div>
 			</div>
