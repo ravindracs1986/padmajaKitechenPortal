@@ -15,6 +15,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
 import org.springframework.context.support.ResourceBundleMessageSource;
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
@@ -102,9 +103,10 @@ public class PadmajaKitchenConfig extends WebMvcConfigurerAdapter{
     @Bean
    	public static PropertySourcesPlaceholderConfigurer propertyConfigInDev() {
    		PropertySourcesPlaceholderConfigurer ppc = new PropertySourcesPlaceholderConfigurer();
-   		FileSystemResource[] resources = new FileSystemResource[]{ new FileSystemResource( getPropertyPath() + ConfigConstants.PROPERTIES_EXT )};
-   	    ppc.setLocations( resources );
-   	    ppc.setIgnoreUnresolvablePlaceholders( false );
+   		//FileSystemResource[] resources = new FileSystemResource[]{ new FileSystemResource( getPropertyPath() + ConfigConstants.PROPERTIES_EXT )};
+   	//FileSystemResource[] resources = new FileSystemResource[]{ new FileSystemResource( getPropertyPath() + ConfigConstants.PROPERTIES_EXT )};
+   	    ppc.setLocations( new ClassPathResource("padmaja-kitchen-portal.properties") );
+   		ppc.setIgnoreUnresolvablePlaceholders( false );
    	    return ppc;
    	}
        private static String propertyPath;
