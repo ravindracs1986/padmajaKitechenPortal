@@ -21,7 +21,7 @@
 				<div class="modal-header">
 					 <c:choose>
 					  <c:when test="${mainMessageType == 'success'}">
-					     <button type="button" class="close" data-dismiss="modal">&times;</button>
+					     <button type="button" class="close" data-dismiss="modal" onclick="location.href='${pageContext.request.contextPath}/${redirectLink}'">&times;</button>
 					  </c:when>
 					  
 					</c:choose>
