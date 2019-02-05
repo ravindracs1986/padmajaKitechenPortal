@@ -22,12 +22,12 @@ public class CustomBlogDetailsService {
 		List<BlogDetails> blogDetailsList = null;
 		if (limit != null) {
 			blogDetailsList = entityManager
-					.createQuery("SELECT p FROM BlogDetails p ORDER BY p.view DESC", BlogDetails.class)
+					.createQuery("SELECT p FROM BlogDetails p ORDER BY p.youTubeView DESC", BlogDetails.class)
 					.setMaxResults(limit).getResultList();
 
 		} else {
 			blogDetailsList = entityManager
-					.createQuery("SELECT p FROM BlogDetails p ORDER BY p.view DESC", BlogDetails.class).getResultList();
+					.createQuery("SELECT p FROM BlogDetails p ORDER BY p.youTubeView DESC", BlogDetails.class).getResultList();
 		}
 		return blogDetailsList;
 	}
@@ -36,12 +36,12 @@ public class CustomBlogDetailsService {
 		List<BlogDetails> blogDetailsList =null;
 		if(limit!=null){
 		blogDetailsList = entityManager
-				.createQuery("SELECT p FROM BlogDetails p ORDER BY p.like DESC", BlogDetails.class).setMaxResults(limit)
+				.createQuery("SELECT p FROM BlogDetails p ORDER BY p.youTubeLike DESC", BlogDetails.class).setMaxResults(limit)
 				.getResultList();
 
 		
 		}else{
-			blogDetailsList = entityManager.createQuery("SELECT p FROM BlogDetails p ORDER BY p.like DESC", BlogDetails.class)
+			blogDetailsList = entityManager.createQuery("SELECT p FROM BlogDetails p ORDER BY p.youTubeLike DESC", BlogDetails.class)
 					.getResultList();
 		}
 	
@@ -77,7 +77,7 @@ public class CustomBlogDetailsService {
 	public List<VideoDetails> findTopVideo() {
 
 		List<VideoDetails> blogDetailsList = entityManager
-				.createQuery("SELECT p FROM VideoDetails p ORDER BY p.like DESC", VideoDetails.class).getResultList();
+				.createQuery("SELECT p FROM VideoDetails p ORDER BY p.youTubeLike DESC", VideoDetails.class).getResultList();
 
 		return blogDetailsList;
 	}
