@@ -30,7 +30,7 @@ import com.padmaja.kitchen.core.AbstractEntity;
  */
 
 @Entity
-@Table(name = "Subs_Contacts")
+@Table(name = "subs_contacts")
 public class SubsorContacts extends AbstractEntity implements java.io.Serializable {
 
 	private static final long serialVersionUID = -4393320270992003990L;
