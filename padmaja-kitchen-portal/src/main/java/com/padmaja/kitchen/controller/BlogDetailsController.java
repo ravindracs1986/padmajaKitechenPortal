@@ -192,7 +192,8 @@ public class BlogDetailsController {
 		String notes = request.getParameter("notes");
 		String category = request.getParameter("category");
 		String description = request.getParameter("description");
-		
+		String view = request.getParameter("youTubeView");
+		String like = request.getParameter("youTubeLike");
 		try {
 			byte[] blogImage =fileBucket.getFile().getBytes();
 			
@@ -219,6 +220,12 @@ public class BlogDetailsController {
 			blogDetails.setCategory(category);
 			blogDetails.setDescription(description);
 			blogDetails.setCrtTs(DateUtil.getSQLTimestamp());
+			if(view!=null){
+				blogDetails.setYouTubeView(Integer.parseInt(view));
+			}
+			if(like!=null){
+				blogDetails.setYouTubeLike(Integer.parseInt(like));			
+			}
 			blogDetailsService.create(blogDetails);
 			
 			

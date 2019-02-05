@@ -7,6 +7,7 @@ import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -40,39 +41,36 @@ public class VideoDetails extends AbstractEntity implements java.io.Serializable
 
 	private static final long serialVersionUID = -4393320270992003990L;
 	@Id
-	@GenericGenerator(name = "generator", strategy = "increment")
-	@GeneratedValue(generator = "generator")
-	@Column(name = "id", nullable = false)
-	private Long id;
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "id")
+	private Integer id;
 
-	@Column(name = "video_name", nullable = false)
+	@Column(name = "video_name")
 	private String videoName;
 
-	@Column(name = "video_url", nullable = false)
+	@Column(name = "video_url")
 	private String videoUrl;
 
-	@Column(name = "video_category", nullable = false)
+	@Column(name = "video_category")
 	private String videoCategory;
 
-	@Column(name = "youtube_id", nullable = false)
+	@Column(name = "youtube_id")
 	private String youtubeId;
 
-	@Column(name = "view", nullable = false)
-	private Integer view;
+	@Column(name = "youTubeView")
+	private Integer youTubeView;
 
-	@Column(name = "like", nullable = false)
-	private Integer like;
-	
-	
-	
-	@Column(name = "CRT_TS", nullable = false, length = 50)
+	@Column(name = "youTubeLike")
+	private Integer youTubeLike;
+	 
+	@Column(name = "crt_ts")
 	private Timestamp crtTs;
 
-	public Long getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
@@ -108,21 +106,20 @@ public class VideoDetails extends AbstractEntity implements java.io.Serializable
 		this.youtubeId = youtubeId;
 	}
 
-	
-	public Integer getView() {
-		return view;
+	public Integer getYouTubeView() {
+		return youTubeView;
 	}
 
-	public void setView(Integer view) {
-		this.view = view;
+	public void setYouTubeView(Integer youTubeView) {
+		this.youTubeView = youTubeView;
 	}
 
-	public Integer getLike() {
-		return like;
+	public Integer getYouTubeLike() {
+		return youTubeLike;
 	}
 
-	public void setLike(Integer like) {
-		this.like = like;
+	public void setYouTubeLike(Integer youTubeLike) {
+		this.youTubeLike = youTubeLike;
 	}
 
 	@Override

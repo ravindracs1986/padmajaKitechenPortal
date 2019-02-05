@@ -118,11 +118,13 @@ public class BlogDetails extends AbstractEntity implements java.io.Serializable 
 	private String category;
 	@Column(name = "description", nullable = false)
 	private String description;
-	@Column(name = "view", nullable = false)
-	private Integer view;
+	@Column(name = "youTubeView")
+	private Integer youTubeView;
 
-	@Column(name = "like", nullable = false)
-	private Integer like;
+	@Column(name = "youTubeLike")
+	private Integer youTubeLike;
+	@Column(name = "crt_ts", nullable = false, length = 50)
+	private Timestamp crtTs;
 
 	public String getTitle() {
 		return title;
@@ -278,8 +280,7 @@ public class BlogDetails extends AbstractEntity implements java.io.Serializable 
 		this.blogImage = blogImage;
 	}
 
-	@Column(name = "CRT_TS", nullable = false, length = 50)
-	private Timestamp crtTs;
+	
 
 	public Long getId() {
 		return id;
@@ -309,21 +310,23 @@ public class BlogDetails extends AbstractEntity implements java.io.Serializable 
 
 	}
 
-	public Integer getView() {
-		return view;
+	public Integer getYouTubeView() {
+		return youTubeView;
 	}
 
-	public void setView(Integer view) {
-		this.view = view;
+	public void setYouTubeView(Integer youTubeView) {
+		this.youTubeView = youTubeView;
 	}
 
-	public Integer getLike() {
-		return like;
+	public Integer getYouTubeLike() {
+		return youTubeLike;
 	}
 
-	public void setLike(Integer like) {
-		this.like = like;
+	public void setYouTubeLike(Integer youTubeLike) {
+		this.youTubeLike = youTubeLike;
 	}
+
+	
 	
 	
 

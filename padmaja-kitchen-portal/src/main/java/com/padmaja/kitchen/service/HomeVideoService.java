@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Scope;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -39,6 +40,13 @@ public class HomeVideoService extends com.padmaja.kitchen.core.AbstractService<V
 	public List<VideoDetails> findTopVideos(){
 		List<VideoDetails> blogDetails= customBlogDetailsService.findTopVideo();
 		return blogDetails;
+	}
+	
+	
+	@Modifying(clearAutomatically = true)
+	@Transactional(readOnly = false, rollbackFor = Exception.class)
+	public VideoDetails createVideo(VideoDetails apsProf) {
+		return homeVideoRepo.saveAndFlush(apsProf);
 	}
 	
 	/*@Transactional(readOnly=false,rollbackFor=Exception.class)

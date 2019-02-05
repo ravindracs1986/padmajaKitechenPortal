@@ -63,11 +63,19 @@
                          <input type="text" class="form-control" placeholder="YouTubeId" name="youTubeId">
                      </div>
                  </div>
-                 <!-- <div class="btn pull-right">
-				  <button type="submit" class="btn btn-primary">Save Video</button>
-				</div> -->
+                 
+                 <div class="form-row">
+                     <div class="form-group col-md-6">
+                         <label for="youTubeLike">YouTube Likes:</label>
+                         <input type="text" class="form-control" placeholder="youTubeLike" name="youTubeLike">
+                     </div>
+                     <div class="form-group col-md-6">
+                         <label for="youTubeView">YouTube Views:</label>
+                         <input type="text" class="form-control" placeholder="youTubeView" name="youTubeView">
+                     </div>
+                 </div>
                  <input type="submit" value="Save Video" name="Save" class="button btn btn-primary" />
-                 <!-- 	<button type="submit" class="btn btn-primary">Save Video</button>  -->
+                 
              </form>
 
              <!-- Blog Page -->
@@ -204,6 +212,17 @@
                          </select>
                      </div>
                      
+                 </div>
+                 
+                 <div class="form-row">
+                     <div class="form-group col-md-6">
+                         <label for="youTubeLike">YouTube Likes:</label>
+                         <input type="text" class="form-control" placeholder="youTubeLike" name="youTubeLike">
+                     </div>
+                     <div class="form-group col-md-6">
+                         <label for="youTubeView">YouTube Views:</label>
+                         <input type="text" class="form-control" placeholder="youTubeView" name="youTubeView">
+                     </div>
                  </div>
                  
                  <button type="submit" class="btn btn-primary">save Blogs</button>

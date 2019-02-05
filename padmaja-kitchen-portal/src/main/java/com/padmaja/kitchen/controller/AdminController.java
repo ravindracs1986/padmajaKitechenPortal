@@ -104,16 +104,20 @@ public class AdminController {
 		String videoName = request.getParameter("videoName");
 		String videoUrl = request.getParameter("videoUrl");
 		String youTubeId = request.getParameter("youTubeId");
+		String view = request.getParameter("youTubeView");
+		String like = request.getParameter("youTubeLike");
 		
-		if (category!=null && videoName!=null && videoUrl!=null && youTubeId!=null) {
+		if (category!=null && videoName!=null && videoUrl!=null && youTubeId!=null && view!=null && like!=null) {
 			System.out.println("Saving video in database url:"+videoUrl);
 			VideoDetails video = new VideoDetails();
 			video.setVideoCategory(category);
 			video.setVideoName(videoName);
 			video.setVideoUrl(videoUrl);
 			video.setYoutubeId(youTubeId);
+			video.setYouTubeLike(Integer.parseInt(like));
+			video.setYouTubeView(Integer.parseInt(view));
 			video.setCrtTs(DateUtil.getSQLTimestamp());
-			homeVideoService.create(video);
+			homeVideoService.createVideo(video);
 		}
 		
 		return "adminHome";
