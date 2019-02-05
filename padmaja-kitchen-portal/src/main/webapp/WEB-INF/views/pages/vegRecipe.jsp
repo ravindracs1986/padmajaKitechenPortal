@@ -22,23 +22,22 @@
 						<div class="product-carousel">
 
 							<c:forEach var="product" items="${videoList}" varStatus="i">
-								<%-- ${product}<br> --%>
 								<div class="single-product">
 									<div class="product-f-image">
-										<iframe width="560" height="315"
-											src="https://www.youtube.com/embed/${product.youtubeId}"
-											frameborder="0"
-											allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-											allowfullscreen></iframe>
-
-										<div class="product-hover">
-											<!-- <a href="#" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Add to cart</a>-->
-											<a href="https://youtu.be/${product.youtubeId}"
-												class="view-details-link" target="_blank"><i
-												class="fa fa-link"></i> See details</a>
+										<div class="video-container">
+											<iframe width="560" height="315"
+												src="https://www.youtube.com/embed/${product.youtubeId}"
+												frameborder="0"
+												allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+												allowfullscreen></iframe>
+	
+											<div class="product-hover">
+												<a href="https://youtu.be/${product.youtubeId}"
+													class="view-details-link" target="_blank"><i
+													class="fa fa-link"></i> See details</a>
+											</div>
 										</div>
 									</div>
-
 									<h2>
 										${product.videoName}
 									</h2>
