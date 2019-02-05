@@ -96,18 +96,18 @@ public class AppController {
 	public String vegRecipePage(ModelMap model,HttpServletRequest request, HttpServletResponse response) {
 		
 		HttpSession session = request.getSession();
-		List<VideoDetails> videoListFromSession = (List<VideoDetails>) session.getAttribute("videoList");
+		List<VideoDetails> vegVideoListFromSession = (List<VideoDetails>) session.getAttribute("vegVideoList");
 		List<BlogDetailsDto> blogDetailsDtoFromSession = (List<BlogDetailsDto>) session.getAttribute("popularImageList");
 		List<BlogDetailsDto> recentFromSession = (List<BlogDetailsDto>) session.getAttribute("recentlyImageList");
 		List<BlogDetailsDto> newFromSession = (List<BlogDetailsDto>) session.getAttribute("newImageList");
-		if (videoListFromSession != null) {
+		if (vegVideoListFromSession != null) {
 			System.out.println("getting from session&&&&&&&");
-			request.setAttribute("videoList", videoListFromSession);
+			request.setAttribute("videoList", vegVideoListFromSession);
 		} else {
 			System.out.println("getting from database@@@@@@@@@@@@");
-			List<VideoDetails> videoList = homeVideoService.findAll();
-			session.setAttribute("videoList", videoList);
-			model.addAttribute("videoList", videoList);
+			List<VideoDetails> vegVideoList = homeVideoService.findbyCategory("VEG");
+			session.setAttribute("vegVideoList", vegVideoList);
+			model.addAttribute("videoList", vegVideoList);
 		}
 		if(blogDetailsDtoFromSession!=null){
 			System.out.println("getting from session popularImageList");
@@ -141,18 +141,18 @@ public class AppController {
 	@RequestMapping(value = { "/nonVegRecipe"}, method = RequestMethod.GET)
 	public String nonVegRecipePage(ModelMap model,HttpServletRequest request, HttpServletResponse response) {
 		HttpSession session = request.getSession();
-		List<VideoDetails> videoListFromSession = (List<VideoDetails>) session.getAttribute("videoList");
+		List<VideoDetails> nonvegvideoListFromSession = (List<VideoDetails>) session.getAttribute("nonVegvideoList");
 		List<BlogDetailsDto> blogDetailsDtoFromSession = (List<BlogDetailsDto>) session.getAttribute("popularImageList");
 		List<BlogDetailsDto> recentFromSession = (List<BlogDetailsDto>) session.getAttribute("recentlyImageList");
 		List<BlogDetailsDto> newFromSession = (List<BlogDetailsDto>) session.getAttribute("newImageList");
-		if (videoListFromSession != null) {
+		if (nonvegvideoListFromSession != null) {
 			System.out.println("getting from session&&&&&&&");
-			request.setAttribute("videoList", videoListFromSession);
+			request.setAttribute("videoList", nonvegvideoListFromSession);
 		} else {
 			System.out.println("getting from database@@@@@@@@@@@@");
-			List<VideoDetails> videoList = homeVideoService.findAll();
-			session.setAttribute("videoList", videoList);
-			model.addAttribute("videoList", videoList);
+			List<VideoDetails> nonVegvideoList = homeVideoService.findbyCategory("NONVEG");
+			session.setAttribute("nonVegvideoList", nonVegvideoList);
+			model.addAttribute("videoList", nonVegvideoList);
 		}
 		if(blogDetailsDtoFromSession!=null){
 			System.out.println("getting from session popularImageList");

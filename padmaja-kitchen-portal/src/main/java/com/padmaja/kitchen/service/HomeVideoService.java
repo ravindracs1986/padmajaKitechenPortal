@@ -49,11 +49,10 @@ public class HomeVideoService extends com.padmaja.kitchen.core.AbstractService<V
 		return homeVideoRepo.saveAndFlush(apsProf);
 	}
 	
-	/*@Transactional(readOnly=false,rollbackFor=Exception.class)
-	public UserProfile getUserProfile(String email){
-		log.info("findbyEmail method in UserProfileService class ");
-		UserProfile usr= userProfileRepo.findbyEmail(email);
-		return usr;
-	}*/
+	@Transactional(readOnly=false,rollbackFor=Exception.class)
+	public List<VideoDetails> findbyCategory(String videoCategory){
+		List<VideoDetails> blogDetails= homeVideoRepo.findbycategory(videoCategory);
+		return blogDetails;
+	}
 
 }
