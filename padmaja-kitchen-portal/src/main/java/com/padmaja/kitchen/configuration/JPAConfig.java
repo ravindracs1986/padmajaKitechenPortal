@@ -6,6 +6,8 @@ import javax.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
 
 import org.dozer.DozerBeanMapper;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.*;
@@ -26,7 +28,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EnableJpaRepositories(basePackages = { "com.padmaja.kitchen.persist.repo"},transactionManagerRef="transactionManager")
 @PropertySource(value = { "classpath:padmaja-kitchen-portal.properties" })
 public class JPAConfig {
-
+	protected Logger logger = LoggerFactory.getLogger(this.getClass());
 	@Autowired
     private Environment environment;
 	
@@ -49,10 +51,14 @@ public class JPAConfig {
                 .addScript("classpath:schema.sql").addScript("classpath:data.sql").build();*/
     	
     	DriverManagerDataSource dataSource = new DriverManagerDataSource();
+    	logger.info("driver::"+environment.getRequiredProperty("mysql.db.driver"));
         dataSource.setDriverClassName(environment.getRequiredProperty("mysql.db.driver"));
         dataSource.setUrl(environment.getRequiredProperty("mysql.db.url"));
+        logger.info("URL::"+environment.getRequiredProperty("mysql.db.url"));
         dataSource.setUsername(environment.getRequiredProperty("mysql.db.uname"));
+        logger.info("user::"+environment.getRequiredProperty("mysql.db.uname"));
         dataSource.setPassword(environment.getRequiredProperty("mysql.db.pword"));
+        logger.info("pass::"+environment.getRequiredProperty("mysql.db.pword"));
         return dataSource;
     	
     }
