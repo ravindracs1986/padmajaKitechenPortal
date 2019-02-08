@@ -30,11 +30,8 @@
 											allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
 											allowfullscreen></iframe>
 											<div class="product-hover">
-												<!-- <a href="#" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Add to cart</a>-->
-												<a href="https://youtu.be/${product.youtubeId}"
-													class="view-details-link" target="_blank"><i
-													class="fa fa-link"></i> See details</a>
-											</div>
+												<a href="https://youtu.be/${product.youtubeId}" class="view-details-link" target="_blank"><i class=""></i> See details</a>
+										  </div>
 										</div>
 									</div>
 

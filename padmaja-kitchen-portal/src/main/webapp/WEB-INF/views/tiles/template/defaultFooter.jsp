@@ -66,7 +66,7 @@ trying to share with you all my experiences & recipes.You can get all recipe ima
         <div class="row">
             <div class="col-md-8">
                 <div class="copyright">
-                    <p>© Copyright 2019 Padmaja Kitchen. All Rights Reserved. <a href="http://www.padmajakitchen.com" target="_blank">padmajakitchen.com</a></p>
+                    <p>© Copyright 2019 Padmaja Kitchen. All Rights Reserved. <a href="https://www.padmajakitchen.com" target="_blank">padmajakitchen.com</a></p>
                 </div>
             </div>
 
