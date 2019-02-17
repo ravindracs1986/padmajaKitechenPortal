@@ -20,6 +20,7 @@ public interface ConfigConstants {
 	public static final String DB_CONF_URL					= "mysql.db.url";
 	public static final String DB_CONF_UNAME				= "mysql.db.uname";
 	public static final String DB_CONF_PWORD				= "mysql.db.pword";
+	public static final String CRON_JOB_SCHEDULER			= "batch.job.schedular";
 	
 	
 	

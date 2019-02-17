@@ -1,9 +1,12 @@
 package com.padmaja.kitchen.service;
 
+import java.sql.Timestamp;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
@@ -79,6 +82,26 @@ public class CustomBlogDetailsService {
 		List<VideoDetails> blogDetailsList = entityManager
 				.createQuery("SELECT p FROM VideoDetails p ORDER BY p.youTubeLike DESC", VideoDetails.class).getResultList();
 
+		return blogDetailsList;
+	}
+	
+	public List<VideoDetails> findVideoForYouTubeUpdate(int day1,int day2) {
+
+		Query q = entityManager
+				.createQuery("SELECT videos FROM VideoDetails videos where TIMESTAMPDIFF(DAY,videos.updateTs,CURRENT_TIMESTAMP)<"+day1+" and TIMESTAMPDIFF(DAY,videos.updateTs,CURRENT_TIMESTAMP)>"+day2+"");
+		q.setMaxResults(10);
+		@SuppressWarnings("unchecked")
+		List<VideoDetails> results = (List<VideoDetails>) q.getResultList();
+		return results;
+		
+	}
+	
+	public List<BlogDetails> findBlogForYouTubeUpdate(int day1,int day2) {
+
+		Query q = entityManager
+				.createQuery("SELECT blog FROM BlogDetails blog where TIMESTAMPDIFF(DAY,videos.updateTs,CURRENT_TIMESTAMP)<"+day1+" and TIMESTAMPDIFF(DAY,videos.updateTs,CURRENT_TIMESTAMP)>"+day2+"");
+		@SuppressWarnings("unchecked")
+		List<BlogDetails> blogDetailsList =(List<BlogDetails>) q.getResultList();
 		return blogDetailsList;
 	}
 

@@ -49,9 +49,16 @@ public class HomeVideoService extends com.padmaja.kitchen.core.AbstractService<V
 		return homeVideoRepo.saveAndFlush(apsProf);
 	}
 	
+	
 	@Transactional(readOnly=false,rollbackFor=Exception.class)
 	public List<VideoDetails> findbyCategory(String videoCategory){
 		List<VideoDetails> blogDetails= homeVideoRepo.findbycategory(videoCategory);
+		return blogDetails;
+	}
+	
+	@Transactional(readOnly=false,rollbackFor=Exception.class)
+	public List<VideoDetails> findVideoForYouTubeUpdate(int day1,int day2){
+		List<VideoDetails> blogDetails= customBlogDetailsService.findVideoForYouTubeUpdate(day1,day2);
 		return blogDetails;
 	}
 

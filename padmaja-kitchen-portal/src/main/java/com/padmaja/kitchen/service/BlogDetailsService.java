@@ -79,5 +79,11 @@ public class BlogDetailsService extends com.padmaja.kitchen.core.AbstractService
 		List<BlogDetails> blogDetails= customBlogDetailsService.getNewLimit(3);
 		return blogDetails;
 	}
+	
+	@Transactional(readOnly=false,rollbackFor=Exception.class)
+	public List<BlogDetails> findBlogForYouTubeUpdate(int day1,int day2){
+		List<BlogDetails> blogDetails= customBlogDetailsService.findBlogForYouTubeUpdate(day1,day2);
+		return blogDetails;
+	}
 
 }

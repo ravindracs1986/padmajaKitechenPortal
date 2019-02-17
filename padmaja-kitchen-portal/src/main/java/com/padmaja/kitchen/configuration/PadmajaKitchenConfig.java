@@ -17,6 +17,7 @@ import org.springframework.context.support.ReloadableResourceBundleMessageSource
 import org.springframework.context.support.ResourceBundleMessageSource;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.FileSystemResource;
+import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
@@ -25,6 +26,8 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 import org.springframework.web.servlet.view.tiles3.TilesConfigurer;
 import org.springframework.web.servlet.view.tiles3.TilesViewResolver;
 
+import com.padmaja.kitchen.controller.YouTubeSchedularController;
+
 
 
 
@@ -32,6 +35,7 @@ import org.springframework.web.servlet.view.tiles3.TilesViewResolver;
 
 @Configuration
 @EnableWebMvc
+@EnableScheduling
 @ComponentScan(basePackages = "com.padmaja.kitchen")
 public class PadmajaKitchenConfig extends WebMvcConfigurerAdapter{
 
@@ -160,6 +164,9 @@ public class PadmajaKitchenConfig extends WebMvcConfigurerAdapter{
    	    return propertyPath;
        }
     
-    
+       /*@Bean
+       public YouTubeSchedularController bean() {
+           return new YouTubeSchedularController();
+       }*/
 }
 

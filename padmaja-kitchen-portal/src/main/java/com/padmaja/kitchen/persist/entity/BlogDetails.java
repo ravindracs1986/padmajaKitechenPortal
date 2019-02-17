@@ -125,6 +125,9 @@ public class BlogDetails extends AbstractEntity implements java.io.Serializable 
 	private Integer youTubeLike;
 	@Column(name = "crt_ts", nullable = false, length = 50)
 	private Timestamp crtTs;
+	
+	@Column(name = "update_ts")
+	private Timestamp updateTs;
 
 	public String getTitle() {
 		return title;
@@ -326,8 +329,12 @@ public class BlogDetails extends AbstractEntity implements java.io.Serializable 
 		this.youTubeLike = youTubeLike;
 	}
 
-	
-	
-	
+	public Timestamp getUpdateTs() {
+		return updateTs;
+	}
+
+	public void setUpdateTs(Timestamp updateTs) {
+		this.updateTs = updateTs;
+	}
 
 }

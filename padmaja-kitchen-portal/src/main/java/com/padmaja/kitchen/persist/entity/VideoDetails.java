@@ -65,6 +65,9 @@ public class VideoDetails extends AbstractEntity implements java.io.Serializable
 	 
 	@Column(name = "crt_ts")
 	private Timestamp crtTs;
+	
+	@Column(name = "update_ts")
+	private Timestamp updateTs;
 
 	public Integer getId() {
 		return id;
@@ -133,5 +136,15 @@ public class VideoDetails extends AbstractEntity implements java.io.Serializable
 		this.crtTs = crtTs;
 
 	}
+
+	public Timestamp getUpdateTs() {
+		return updateTs;
+	}
+
+	public void setUpdateTs(Timestamp updateTs) {
+		this.updateTs = updateTs;
+	}
+	
+	
 
 }
