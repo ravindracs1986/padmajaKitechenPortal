@@ -90,11 +90,11 @@ public class BlogDetails extends AbstractEntity implements java.io.Serializable 
 	@Column(name = "paragraphSix", nullable = false)
 	private String paragraphSix;
 
-	@Column(name = "youTubeVideoTitle", nullable = false)
+	@Column(name = "youTubeVideoTitle")
 	private String youTubeVideoTitle;
 
-	@Column(name = "youTubeVideoUrl", nullable = false)
-	private String youTubeVideoUrl;
+	@Column(name = "youtubeId")
+	private String youtubeId;
 
 	@Column(name = "recipeCardTitle", nullable = false)
 	private String recipeCardTitle;
@@ -211,12 +211,14 @@ public class BlogDetails extends AbstractEntity implements java.io.Serializable 
 		this.youTubeVideoTitle = youTubeVideoTitle;
 	}
 
-	public String getYouTubeVideoUrl() {
-		return youTubeVideoUrl;
+	
+
+	public String getYoutubeId() {
+		return youtubeId;
 	}
 
-	public void setYouTubeVideoUrl(String youTubeVideoUrl) {
-		this.youTubeVideoUrl = youTubeVideoUrl;
+	public void setYoutubeId(String youtubeId) {
+		this.youtubeId = youtubeId;
 	}
 
 	public String getRecipeCardTitle() {

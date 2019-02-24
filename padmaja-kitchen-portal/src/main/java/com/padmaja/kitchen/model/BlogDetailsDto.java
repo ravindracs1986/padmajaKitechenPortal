@@ -32,7 +32,7 @@ public class BlogDetailsDto implements java.io.Serializable {
 
 	private String youTubeVideoTitle;
 
-	private String youTubeVideoUrl;
+	private String youtubeId;
 
 	private String recipeCardTitle;
 
@@ -139,12 +139,14 @@ public class BlogDetailsDto implements java.io.Serializable {
 		this.youTubeVideoTitle = youTubeVideoTitle;
 	}
 
-	public String getYouTubeVideoUrl() {
-		return youTubeVideoUrl;
+	
+
+	public String getYoutubeId() {
+		return youtubeId;
 	}
 
-	public void setYouTubeVideoUrl(String youTubeVideoUrl) {
-		this.youTubeVideoUrl = youTubeVideoUrl;
+	public void setYoutubeId(String youtubeId) {
+		this.youtubeId = youtubeId;
 	}
 
 	public String getRecipeCardTitle() {

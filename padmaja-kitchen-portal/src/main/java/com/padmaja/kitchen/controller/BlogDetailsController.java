@@ -77,7 +77,7 @@ public class BlogDetailsController {
 			details.setRecipeCardInsideTitle(detailsFromDb.getRecipeCardInsideTitle() != null ? detailsFromDb.getRecipeCardInsideTitle() : EMPTY_STRING);
 			details.setRecipeCardTitle(detailsFromDb.getRecipeCardTitle() != null ? detailsFromDb.getRecipeCardTitle() : EMPTY_STRING);
 			details.setYouTubeVideoTitle(detailsFromDb.getYouTubeVideoTitle() != null ? detailsFromDb.getYouTubeVideoTitle() : EMPTY_STRING);
-			details.setYouTubeVideoUrl(detailsFromDb.getYouTubeVideoUrl() != null ? detailsFromDb.getYouTubeVideoUrl() : EMPTY_STRING);
+			details.setYoutubeId(detailsFromDb.getYoutubeId() != null ? detailsFromDb.getYoutubeId() : EMPTY_STRING);
 			
 			details.setLaunchCount(getlaunchCount(request,response));
 			details.setMorningCount(getmorningCount(request, response));
@@ -211,7 +211,7 @@ public class BlogDetailsController {
 			blogDetails.setParagraphFive(paragraphFive);
 			blogDetails.setParagraphSix(paragraphSix);
 			blogDetails.setYouTubeVideoTitle(youTubeVideoTitle);
-			blogDetails.setYouTubeVideoUrl(youTubeVideoUrl);
+			blogDetails.setYoutubeId(youTubeVideoUrl);
 			blogDetails.setRecipeCardTitle(recipeCardTitle);
 			blogDetails.setRecipeCardInsideTitle(recipeCardInsideTitle);
 			blogDetails.setIngredientsDetails(ingredientsDetails);

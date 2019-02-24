@@ -32,7 +32,8 @@
                                     <img src="${details.imageTwoUrl}" alt="">
                                     <p>${details.paragraphFour}</p>
                                     <h3><b>${details.youTubeVideoTitle}:</b></h3>
-                                    <iframe width="670" height="315" src="${details.youTubeVideoUrl}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                    <!-- https://www.youtube.com/embed/sqNS5CONSdM -->
+                                    <iframe width="670" height="315" src="https://www.youtube.com/embed/${details.youtubeId}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
                                     <br/>
                                     <h3><b>${details.recipeCardTitle}:</b></h3>

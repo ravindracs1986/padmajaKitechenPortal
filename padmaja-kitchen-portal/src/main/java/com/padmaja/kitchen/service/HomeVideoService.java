@@ -1,5 +1,6 @@
 package com.padmaja.kitchen.service;
 
+import java.sql.Timestamp;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,6 +43,17 @@ public class HomeVideoService extends com.padmaja.kitchen.core.AbstractService<V
 		return blogDetails;
 	}
 	
+	@Transactional(readOnly=false,rollbackFor=Exception.class)
+	public VideoDetails findVideosByYouTubeId(String youtubeId){
+		VideoDetails blogDetails= homeVideoRepo.findVideosByYouTubeId(youtubeId);
+		return blogDetails;
+	}
+	@Transactional(readOnly=false,rollbackFor=Exception.class)
+	public int updateVideoDetails(int viewCount,int likeCount,Timestamp updateTs,String youtubeId){
+		int reslt= homeVideoRepo.updateVideoDetails(viewCount,likeCount,updateTs,youtubeId);
+		return reslt;
+	}
+	
 	
 	@Modifying(clearAutomatically = true)
 	@Transactional(readOnly = false, rollbackFor = Exception.class)
@@ -57,8 +69,8 @@ public class HomeVideoService extends com.padmaja.kitchen.core.AbstractService<V
 	}
 	
 	@Transactional(readOnly=false,rollbackFor=Exception.class)
-	public List<VideoDetails> findVideoForYouTubeUpdate(int day1,int day2){
-		List<VideoDetails> blogDetails= customBlogDetailsService.findVideoForYouTubeUpdate(day1,day2);
+	public List<VideoDetails> findVideoForYouTubeUpdate(int day1,int day2,int maxRecords){
+		List<VideoDetails> blogDetails= customBlogDetailsService.findVideoForYouTubeUpdate(day1,day2,maxRecords);
 		return blogDetails;
 	}
 

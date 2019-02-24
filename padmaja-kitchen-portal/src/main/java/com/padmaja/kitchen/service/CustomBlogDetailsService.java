@@ -85,21 +85,23 @@ public class CustomBlogDetailsService {
 		return blogDetailsList;
 	}
 	
-	public List<VideoDetails> findVideoForYouTubeUpdate(int day1,int day2) {
+	public List<VideoDetails> findVideoForYouTubeUpdate(int day1,int day2,int maxRecords) {
 
 		Query q = entityManager
 				.createQuery("SELECT videos FROM VideoDetails videos where TIMESTAMPDIFF(DAY,videos.updateTs,CURRENT_TIMESTAMP)<"+day1+" and TIMESTAMPDIFF(DAY,videos.updateTs,CURRENT_TIMESTAMP)>"+day2+"");
-		q.setMaxResults(10);
+		q.setMaxResults(maxRecords);
 		@SuppressWarnings("unchecked")
 		List<VideoDetails> results = (List<VideoDetails>) q.getResultList();
 		return results;
 		
 	}
 	
-	public List<BlogDetails> findBlogForYouTubeUpdate(int day1,int day2) {
+	public List<BlogDetails> findBlogForYouTubeUpdate(int day1,int day2,int maxRecords) {
 
 		Query q = entityManager
-				.createQuery("SELECT blog FROM BlogDetails blog where TIMESTAMPDIFF(DAY,videos.updateTs,CURRENT_TIMESTAMP)<"+day1+" and TIMESTAMPDIFF(DAY,videos.updateTs,CURRENT_TIMESTAMP)>"+day2+"");
+				.createQuery("SELECT blog FROM BlogDetails blog where TIMESTAMPDIFF(DAY,blog.updateTs,CURRENT_TIMESTAMP)<"+day1+" and TIMESTAMPDIFF(DAY,blog.updateTs,CURRENT_TIMESTAMP)>"+day2+"");
+		
+		q.setMaxResults(maxRecords);
 		@SuppressWarnings("unchecked")
 		List<BlogDetails> blogDetailsList =(List<BlogDetails>) q.getResultList();
 		return blogDetailsList;

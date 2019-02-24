@@ -1,9 +1,11 @@
 package com.padmaja.kitchen.persist.repo;
 
+import java.sql.Timestamp;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Scope;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.RepositoryDefinition;
 import org.springframework.data.repository.query.Param;
@@ -24,9 +26,10 @@ public interface BlogDetailsRepo extends GenericRepository<BlogDetails> {
 	@Query("select detail from BlogDetails detail where detail.id = :id")
 	public BlogDetails findbyId(@Param("id") Long id);
 	
-	/*@Modifying
-	@Query("update UserProfile u set u.status =:status WHERE u.email = :email")
-	public int updateAuthentication(@Param("status") String status,@Param("email") String email);*/
+	@Modifying
+	@Query("update BlogDetails u set u.youTubeView =:youTubeView,u.youTubeLike =:youTubeLike,u.imageOneUrl =:imageOneUrl,u.updateTs =:updateTs WHERE u.youtubeId = :youtubeId")
+	public int updateBlogDetails(@Param("youTubeView") Integer youTubeView,@Param("youTubeLike") Integer youTubeLike,
+			@Param("imageOneUrl") String imageOneUrl,@Param("updateTs") Timestamp updateTs,@Param("youtubeId") String youtubeId);
 	
 	@Query("select detail from BlogDetails detail where detail.category = :category")
 	public List<BlogDetails> getByCategory(@Param("category") String category);

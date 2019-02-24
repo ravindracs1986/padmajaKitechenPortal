@@ -1,5 +1,6 @@
 package com.padmaja.kitchen.persist.repo;
 
+import java.sql.Timestamp;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -24,9 +25,13 @@ public interface HomeVideoRepo extends GenericRepository<VideoDetails> {
 
 	@Query("select usr from VideoDetails usr where usr.videoCategory = :videoCategory")
 	public List<VideoDetails> findbycategory(@Param("videoCategory") String videoCategory);
-	/*
+	
+	@Query("select usr from VideoDetails usr where usr.youtubeId = :youtubeId")
+	public VideoDetails findVideosByYouTubeId(@Param("youtubeId") String youtubeId);
+	
 	@Modifying
-	@Query("update UserProfile u set u.status =:status WHERE u.email = :email")
-	public int updateAuthentication(@Param("status") String status,@Param("email") String email);*/
+	@Query("update VideoDetails u set u.youTubeView =:youTubeView,u.youTubeLike =:youTubeLike,u.updateTs =:updateTs WHERE u.youtubeId = :youtubeId")
+	public int updateVideoDetails(@Param("youTubeView") Integer youTubeView,@Param("youTubeLike") Integer youTubeLike,
+			@Param("updateTs") Timestamp updateTs,@Param("youtubeId") String youtubeId);
 
 }
